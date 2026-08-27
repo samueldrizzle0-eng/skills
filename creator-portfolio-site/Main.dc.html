@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600;700;800&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .pf {
+      --ink: #241c14;
+      --ink-soft: #6b5f52;
+      --ink-faint: #a89a86;
+      --bg: #faf6ee;
+      --bg-alt: #f2e9d8;
+      --card: #fffdf8;
+      --border: #e6dac3;
+      --accent-2: #1f7a72;
+      font-family: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .pf a { color: inherit; text-decoration: none; }
+    .pf a:hover { color: var(--accent); }
+    .display { font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; }
+    .display em { font-style: italic; color: var(--accent); }
+    .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 15px 26px; cursor: pointer; border: 1.5px solid transparent; white-space: nowrap; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fffaf3; box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+    .btn-primary:hover { background: color-mix(in oklab, var(--accent), black 12%); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+    .btn-ghost:hover { border-color: var(--ink-faint); background: var(--card); }
+    .btn-sm { padding: 13px 20px; font-size: 13px; }
+    .btn svg { width: 16px; height: 16px; flex: none; }
+
+    /* Nav */
+    .nav { position: sticky; top: 0; z-index: 40; background: rgba(250,246,238,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; }
+    .brand .mark { width: 30px; height: 30px; border-radius: 9px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fffaf3; font-family: 'Instrument Serif', serif; font-style: normal; font-size: 16px; flex: none; }
+    .nav-links { display: flex; align-items: center; gap: 32px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+    .nav-cta { display: flex; align-items: center; gap: 14px; }
+
+    /* Hero */
+    .hero { padding: 88px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,440px); gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(40px, 5.2vw, 68px); margin: 18px 0 20px; max-width: 15ch; }
+    .hero p.lede { font-size: 19px; line-height: 1.55; color: var(--ink-soft); max-width: 46ch; margin: 0 0 32px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .trust-line { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-soft); font-weight: 600; }
+    .stars { display: flex; gap: 2px; color: var(--accent); flex: none; }
+    .stars svg { width: 16px; height: 16px; }
+
+    .hero-visual { position: relative; height: 420px; }
+    .mock { position: absolute; width: 240px; border-radius: 18px; background: var(--card); border: 1px solid var(--border); box-shadow: 0 18px 40px -14px rgba(36,28,20,0.28); overflow: hidden; }
+    .mock-1 { top: 6px; left: 0; width: 210px; height: 270px; transform: rotate(-7deg); z-index: 1; }
+    .mock-2 { top: 96px; left: 148px; width: 230px; height: 280px; transform: rotate(5deg); z-index: 2; }
+    .mock-3 { top: 236px; left: 8px; width: 196px; height: 150px; transform: rotate(-3deg); z-index: 3; }
+    .mock-head { height: 30px; background: var(--bg-alt); display: flex; align-items: center; gap: 5px; padding: 0 12px; border-bottom: 1px solid var(--border); }
+    .mock-head span { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+    .mock-body { padding: 16px; }
+    .mock-1 .mock-body { background: linear-gradient(160deg, var(--accent) 0%, color-mix(in oklab, var(--accent), #241c14 30%) 100%); height: calc(100% - 30px); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+    .mock-1 .mock-body .kicker { color: rgba(255,250,243,0.75); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .mock-1 .mock-body .title { color: #fffaf3; font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.1; }
+    .mock-2 .mock-body .row { height: 10px; border-radius: 5px; background: var(--bg-alt); margin-bottom: 10px; }
+    .mock-2 .mock-body .row.w60 { width: 60%; }
+    .mock-2 .mock-body .row.w80 { width: 80%; }
+    .mock-2 .mock-body .block { height: 64px; border-radius: 10px; background: var(--bg-alt); margin-top: 14px; display: flex; align-items: center; justify-content: center; }
+    .mock-2 .mock-body .block svg { width: 22px; height: 22px; color: var(--accent-2); }
+    .mock-3 .mock-body { display: flex; align-items: center; justify-content: center; height: calc(100% - 30px); background: color-mix(in oklab, var(--accent-2), white 88%); }
+    .play { width: 46px; height: 46px; border-radius: 50%; background: var(--card); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    .play svg { width: 16px; height: 16px; color: var(--accent-2); margin-left: 2px; }
+
+    /* Stats */
+    .stats-band { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+    .stats-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; padding: 40px 0; }
+    .stat { text-align: center; }
+    .stat .num { font-family: 'Instrument Serif', serif; font-size: 38px; color: var(--accent); }
+    .stat .label { font-size: 13px; color: var(--ink-soft); font-weight: 600; margin-top: 4px; }
+
+    /* Problem */
+    .section { padding: 96px 0; }
+    .section-head { max-width: 640px; margin: 0 0 52px; }
+    .section-head h2 { font-size: clamp(30px, 3.6vw, 44px); margin: 14px 0 0; }
+    .section-head p { font-size: 17px; color: var(--ink-soft); margin: 14px 0 0; line-height: 1.5; }
+    .cols-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+    .problem-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; }
+    .icon-badge { width: 44px; height: 44px; border-radius: 12px; background: color-mix(in oklab, var(--accent), white 84%); display: flex; align-items: center; justify-content: center; flex: none; }
+    .icon-badge svg { width: 22px; height: 22px; color: var(--accent); }
+    .problem-card .from { font-size: 13px; font-weight: 700; color: var(--ink-faint); text-decoration: line-through; }
+    .problem-card h3 { font-size: 19px; margin: 0; line-height: 1.35; }
+    .problem-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+
+    /* Products */
+    .section-alt { background: var(--bg-alt); }
+    .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 36px -20px rgba(36,28,20,0.3); }
+    .product-cover { height: 168px; display: flex; align-items: flex-end; padding: 18px; }
+    .product-cover svg { width: 36px; height: 36px; }
+    .product-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .tag { display: inline-flex; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); background: color-mix(in oklab, var(--accent-2), white 88%); padding: 5px 10px; border-radius: 999px; }
+    .product-body h3 { font-size: 21px; margin: 0; }
+    .product-body p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+    .product-foot { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .price { font-family: 'Instrument Serif', serif; font-size: 26px; }
+    .price span { font-size: 13px; color: var(--ink-faint); font-family: 'Public Sans', sans-serif; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 48px; align-items: start; }
+    .avatar { width: 220px; height: 220px; border-radius: 24px; background: linear-gradient(155deg, color-mix(in oklab, var(--accent), white 18%), var(--accent-2)); display: flex; align-items: center; justify-content: center; }
+    .avatar span { font-family: 'Instrument Serif', serif; font-size: 64px; color: #fffaf3; }
+    .about-copy p { font-size: 17px; line-height: 1.65; color: var(--ink-soft); margin: 0 0 16px; }
+    .about-copy p strong { color: var(--ink); }
+    .creds { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .cred { font-size: 13px; font-weight: 700; color: var(--ink-soft); background: var(--bg-alt); border: 1px solid var(--border); padding: 8px 14px; border-radius: 999px; }
+
+    /* Testimonials */
+    .t-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+    .t-card .stars { margin-bottom: -4px; }
+    .t-card p.quote { font-size: 16px; line-height: 1.55; color: var(--ink); margin: 0; }
+    .t-person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .t-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--bg-alt); border: 1px solid var(--border); flex: none; }
+    .t-person .name { font-size: 14px; font-weight: 700; }
+    .t-person .role { font-size: 13px; color: var(--ink-soft); }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); max-width: 780px; }
+    .faq-item { padding: 26px 0; border-bottom: 1px solid var(--border); display: flex; gap: 24px; justify-content: space-between; }
+    .faq-item h3 { font-size: 18px; margin: 0 0 10px; font-weight: 700; }
+    .faq-item p { font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; max-width: 58ch; }
+    .faq-num { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--ink-faint); flex: none; }
+
+    /* Final CTA */
+    .cta-band { background: var(--ink); color: #fffaf3; border-radius: 28px; padding: 72px 56px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .cta-band h2 { font-size: clamp(32px, 4.4vw, 52px); color: #fffaf3; margin: 0 0 16px; max-width: 18ch; }
+    .cta-band p { font-size: 16px; color: rgba(255,250,243,0.68); margin: 0 0 34px; }
+    .cta-band .micro { font-size: 13px; color: rgba(255,250,243,0.6); margin-top: 18px; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 56px 0 40px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 44px; }
+    .footer-brand p { font-size: 14px; color: var(--ink-soft); max-width: 32ch; line-height: 1.5; margin: 12px 0 0; }
+    .subscribe { display: flex; gap: 10px; }
+    .subscribe input { font-family: 'Public Sans', sans-serif; font-size: 14px; padding: 13px 16px; border-radius: 999px; border: 1.5px solid var(--border); background: var(--card); color: var(--ink); width: 240px; }
+    .subscribe input::placeholder { color: var(--ink-faint); }
+    .footer-cols { display: flex; gap: 64px; }
+    .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 14px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--ink-soft); font-weight: 600; margin-bottom: 10px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 24px; font-size: 13px; color: var(--ink-faint); flex-wrap: wrap; gap: 14px; }
+    .socials { display: flex; gap: 14px; }
+    .socials a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .socials svg { width: 15px; height: 15px; color: var(--ink-soft); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { height: 320px; max-width: 420px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .avatar { width: 120px; height: 120px; }
+      .avatar span { font-size: 40px; }
+      .cols-3, .stats-row { grid-template-columns: 1fr 1fr; }
+      .section { padding: 68px 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 0 40px; }
+      .cols-3, .stats-row { grid-template-columns: 1fr; }
+      .cta-band { padding: 52px 24px; border-radius: 20px; }
+      .faq-item { gap: 14px; }
+      .footer-top { flex-direction: column; }
+      .footer-cols { gap: 40px; }
+    }
+  </style>
+</helmet>
+
+<div class="pf" style="--accent:{{accent}}">
+
+  <header class="nav">
+    <div class="wrap nav-row">
+      <a href="#" class="brand"><span class="mark">Y</span>[Your Name]</a>
+      <nav class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#products" class="btn btn-primary btn-sm">Browse Products</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>DIGITAL PRODUCTS FOR CREATORS</div>
+        <h1 class="display">Turn what you know into products people <em>actually</em> buy.</h1>
+        <p class="lede">I'm [Your Name] — I build templates, courses, and tools that help [target audience] skip the trial and error and launch faster.</p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn btn-primary">Browse the Products
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#about" class="btn btn-ghost">Watch how it works</a>
+        </div>
+        <div class="trust-line">
+          <span class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+          </span>
+          [4.9]/5 from [500]+ reviews
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mock mock-1">
+          <div class="mock-head"><span></span><span></span><span></span></div>
+          <div class="mock-body">
+            <div class="kicker">Ebook</div>
+            <div class="title">[Product Name]</div>
+          </div>
+        </div>
+        <div class="mock mock-2">
+          <div class="mock-head"><span></span><span></span><span></span></div>
+          <div class="mock-body">
+            <div class="row w60"></div>
+            <div class="row w80"></div>
+            <div class="row w60"></div>
+            <div class="block">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="mock mock-3">
+          <div class="mock-head"><span></span><span></span><span></span></div>
+          <div class="mock-body">
+            <div class="play">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 4l10 6-10 6V4z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="wrap stats-row">
+      <div class="stat"><div class="num">[12,000]+</div><div class="label">Products sold</div></div>
+      <div class="stat"><div class="num">[500]+</div><div class="label">5-star reviews</div></div>
+      <div class="stat"><div class="num">[4.9]/5</div><div class="label">Average rating</div></div>
+      <div class="stat"><div class="num">[6] yrs</div><div class="label">Building in public</div></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span>WHY IT'S HARD</div>
+        <h2 class="display">You know your craft. Turning it into income is the hard part.</h2>
+      </div>
+      <div class="cols-3">
+        <div class="problem-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v4M12 16v4M4 12h4M16 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+          </div>
+          <div class="from">Staring at a blank page</div>
+          <h3>No idea where to start</h3>
+          <p>Proven, plug-and-play templates so you're building on a system, not starting from zero.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 12l5-5M3 12l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="from">Traffic with no sales</div>
+          <h3>Nobody's buying</h3>
+          <p>Conversion-tested product pages and pricing that turn browsers into buyers, not just views.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="from">A quarter to launch</div>
+          <h3>Not enough time</h3>
+          <p>Ready-made systems you can customize and ship in a weekend, not a quarter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span>FEATURED PRODUCTS</div>
+        <h2 class="display">Pick your starting point.</h2>
+        <p>Three ways to shortcut the work — grab one, or bundle all three and save.</p>
+      </div>
+      <div class="cols-3">
+        <div class="product-card">
+          <div class="product-cover" style="background:linear-gradient(155deg, var(--accent), color-mix(in oklab, var(--accent), black 30%));">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v16.5A1.5 1.5 0 0118.5 21H6.5A2.5 2.5 0 014 18.5v-13z" stroke="#fffaf3" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 18.5A2.5 2.5 0 016.5 16H20" stroke="#fffaf3" stroke-width="1.6"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="tag">Ebook</span>
+            <h3>[Product Name]</h3>
+            <p>The exact playbook I used to go from idea to a repeatable product line — no fluff, just the steps.</p>
+            <div class="product-foot">
+              <div class="price">$[29] <span>one-time</span></div>
+              <a href="#" class="btn btn-ghost btn-sm">Get it</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-cover" style="background:linear-gradient(155deg, var(--accent-2), color-mix(in oklab, var(--accent-2), black 30%));">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#fffaf3" stroke-width="1.6"/><path d="M3 9h18M8 4v5" stroke="#fffaf3" stroke-width="1.6"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="tag">Template</span>
+            <h3>[Product Name]</h3>
+            <p>A complete planning and publishing system you can duplicate and start using in the next ten minutes.</p>
+            <div class="product-foot">
+              <div class="price">$[19] <span>one-time</span></div>
+              <a href="#" class="btn btn-ghost btn-sm">Get it</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-cover" style="background:linear-gradient(155deg, #7c6a52, color-mix(in oklab, #7c6a52, black 30%));">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 4l14 8-14 8V4z" stroke="#fffaf3" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="tag">Course</span>
+            <h3>[Product Name]</h3>
+            <p>Six modules, lifetime access, and a private community — for creators ready to go all in.</p>
+            <div class="product-foot">
+              <div class="price">$[149] <span>one-time</span></div>
+              <a href="#" class="btn btn-ghost btn-sm">Get it</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="avatar"><span>Y</span></div>
+      <div class="about-copy">
+        <div class="eyebrow"><span class="dot"></span>ABOUT</div>
+        <h2 class="display" style="margin:14px 0 20px;">Hi, I'm [Your Name].</h2>
+        <p>After years of doing this the hard way, I started turning my process into products other creators could actually use. Today, <strong>[Your Name]'s</strong> products have helped thousands of [target audience] skip the guesswork and get to a finished product faster.</p>
+        <p>Everything I sell is something I use myself first — tested, refined, and rebuilt until it earns its place in your workflow.</p>
+        <div class="creds">
+          <span class="cred">[6] years experience</span>
+          <span class="cred">[12,000]+ creators helped</span>
+          <span class="cred">Featured in [Publication]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span>REVIEWS</div>
+        <h2 class="display">Don't take it from me.</h2>
+      </div>
+      <div class="cols-3">
+        <div class="t-card">
+          <span class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+          </span>
+          <p class="quote">"This saved me probably twenty hours of setup. I was live with my first product the same day I bought it."</p>
+          <div class="t-person">
+            <div class="t-avatar"></div>
+            <div><div class="name">[Customer Name]</div><div class="role">[Their business]</div></div>
+          </div>
+        </div>
+        <div class="t-card">
+          <span class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+          </span>
+          <p class="quote">"Worth ten times the price. The kind of resource I wish existed when I started three years ago."</p>
+          <div class="t-person">
+            <div class="t-avatar"></div>
+            <div><div class="name">[Customer Name]</div><div class="role">[Their business]</div></div>
+          </div>
+        </div>
+        <div class="t-card">
+          <span class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+          </span>
+          <p class="quote">"Clear, no-nonsense, and it actually works. I recommend this to every creator who asks me where to start."</p>
+          <div class="t-person">
+            <div class="t-avatar"></div>
+            <div><div class="name">[Customer Name]</div><div class="role">[Their business]</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom: 8px;">
+        <div class="eyebrow"><span class="dot"></span>FAQ</div>
+        <h2 class="display">Questions, answered.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div><h3>What do I get after I purchase?</h3><p>Instant access to your download or course dashboard — no waiting, no shipping. A confirmation email with everything you need lands in your inbox right away.</p></div>
+          <div class="faq-num">01</div>
+        </div>
+        <div class="faq-item">
+          <div><h3>Do you offer refunds?</h3><p>Yes — every product comes with a [14]-day money-back guarantee. If it's not a fit, email me and you'll get a full refund, no questions asked.</p></div>
+          <div class="faq-num">02</div>
+        </div>
+        <div class="faq-item">
+          <div><h3>Is this beginner friendly?</h3><p>Yes. Everything is built to work whether this is your first product or your fifth — no prior experience assumed.</p></div>
+          <div class="faq-num">03</div>
+        </div>
+        <div class="faq-item">
+          <div><h3>How is this different from free resources?</h3><p>Free content teaches you concepts. These are done-for-you systems and templates — you're paying for the hours it would take to build it yourself.</p></div>
+          <div class="faq-num">04</div>
+        </div>
+        <div class="faq-item">
+          <div><h3>Do you offer support?</h3><p>Every purchase includes email support, and course customers get access to a private community for feedback and questions.</p></div>
+          <div class="faq-num">05</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div class="eyebrow" style="color: rgba(255,250,243,0.65);"><span class="dot"></span>READY WHEN YOU ARE</div>
+        <h2 class="display" style="margin-top:16px;">Stop guessing. Start shipping.</h2>
+        <p>Join [12,000]+ creators who used these products to launch faster.</p>
+        <a href="#products" class="btn btn-primary">Browse the Products
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="micro">Instant access · [14]-day money-back guarantee</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="brand"><span class="mark">Y</span>[Your Name]</a>
+          <p>Templates, courses, and tools to help creators turn what they know into products people buy.</p>
+          <form class="subscribe" style="margin-top: 20px;">
+            <input type="email" placeholder="you@email.com">
+            <button type="button" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">Contact</a>
+            <a href="#">Refund policy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 [Your Name]. All rights reserved.</div>
+        <div class="socials">
+          <a href="#" aria-label="X"><svg viewBox="0 0 20 20" fill="none"><path d="M3 3l14 14M17 3L3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="10" r="3.4" stroke="currentColor" stroke-width="1.6"/><circle cx="14.2" cy="5.8" r="0.9" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 20 20" fill="none"><rect x="2.5" y="5" width="15" height="10" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8.3 7.8l4 2.2-4 2.2V7.8z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#e8623f","options":["#e8623f","#1f7a72","#7c3aed","#e0b039"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#e8623f' };
+  }
+}
+</script>
+</body>
+</html>
