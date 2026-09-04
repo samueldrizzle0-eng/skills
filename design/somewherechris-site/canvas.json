@@ -14,7 +14,7 @@
       "x": 1560,
       "y": 0,
       "w": 1440,
-      "h": 2900,
+      "h": 3300,
       "title": "B — The Split Ledger (light)",
       "page": "page-light"
     },
@@ -23,7 +23,7 @@
       "x": 3120,
       "y": 0,
       "w": 1440,
-      "h": 4000,
+      "h": 3800,
       "title": "C — The Statement (light)",
       "page": "page-light"
     },
@@ -41,7 +41,7 @@
       "x": 1560,
       "y": 0,
       "w": 1440,
-      "h": 2900,
+      "h": 3300,
       "title": "B — The Split Ledger (dark)",
       "page": "page-dark"
     },
@@ -50,7 +50,7 @@
       "x": 3120,
       "y": 0,
       "w": 1440,
-      "h": 4000,
+      "h": 3800,
       "title": "C — The Statement (dark)",
       "page": "page-dark"
     },
@@ -59,7 +59,7 @@
       "x": 0,
       "y": 0,
       "w": 390,
-      "h": 3200,
+      "h": 3400,
       "title": "A — phone (light)",
       "page": "page-mobile"
     },
@@ -68,7 +68,7 @@
       "x": 510,
       "y": 0,
       "w": 390,
-      "h": 3200,
+      "h": 3400,
       "title": "A — phone (dark)",
       "page": "page-mobile"
     }
