@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; font-family: Inter, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--linkHover); }
+    p { text-wrap: pretty; }
+  </style>
+</helmet>
+
+<div style="--link: {{t.accentText}}; --linkHover: {{t.text}}; background: {{t.bg}}; color: {{t.text}}; min-height: 100%; font-size: 16px; line-height: 1.6;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid {{t.border}};">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{t.accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em;">SomewhereChris</span>
+    </div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{t.text}}" stroke-width="1.8" stroke-linecap="round"><path d="M4 7 H20"></path><path d="M4 12 H20"></path><path d="M4 17 H20"></path></svg>
+  </div>
+
+  <div style="padding: 40px 20px 0 20px; display: flex; flex-direction: column; gap: 18px;">
+    <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.accentText}};">A skill you learn once</div>
+    <h1 style="margin: 0; font-size: 34px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 700;">Turn your ideas into digital products, with AI doing the heavy lifting.</h1>
+    <p style="margin: 0; font-size: 17px; color: {{t.muted}};">You don&#39;t need a team, a developer, or a launch budget. You need one repeatable process for putting an idea in front of people who will pay for it.</p>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 10px; background: {{t.accent}}; color: {{t.onAccent}}; font-size: 16px; font-weight: 600;">Get the system</div>
+      <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 10px; border: 1px solid {{t.accent}}; color: {{t.accentText}}; font-size: 16px; font-weight: 500;">Read a free lesson</div>
+    </div>
+    <p style="margin: 0; font-size: 13px; color: {{t.muted}};">[X] people have built and sold their first product this way.</p>
+  </div>
+
+  <div style="padding: 48px 20px 0 20px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="height: 1px; background: {{t.border}};"></div>
+    <h2 style="margin: 18px 0 0 0; font-size: 25px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600;">Most people never ship. The idea was rarely the problem.</h2>
+    <p style="margin: 0; font-size: 16px; color: {{t.muted}};">The distance between &ldquo;I have an idea&rdquo; and &ldquo;here is the thing you can buy&rdquo; is full of decisions nobody taught you how to make. AI closes that gap &mdash; your judgement is still the product.</p>
+  </div>
+
+  <div style="padding: 48px 20px 0 20px; display: flex; flex-direction: column;">
+    <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">How it works</div>
+    <h2 style="margin: 12px 0 24px 0; font-size: 25px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600;">Four moves, in order.</h2>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; color: {{t.accentText}};">01</div>
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Find the idea worth building</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">Pull from what people already ask you for.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; color: {{t.accentText}};">02</div>
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Shape it into one product</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">One promise, one format, one buyer.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; color: {{t.accentText}};">03</div>
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Build it with AI</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">Draft, structure, design and package in days.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid {{t.border}}; border-bottom: 1px solid {{t.border}};">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; color: {{t.accentText}};">04</div>
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Put it up for sale</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">Pricing, page, delivery, first ten customers.</p>
+    </div>
+  </div>
+
+  <div style="padding: 48px 20px 0 20px; display: flex; flex-direction: column; gap: 12px;">
+    <h2 style="margin: 0 0 8px 0; font-size: 25px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600;">What you actually get</h2>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid {{t.border}}; border-radius: 12px; background: {{t.surface}};">
+      <h3 style="margin: 0; font-size: 16px; font-weight: 600;">The Idea Filter</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">A twenty-minute pass that tells you whether an idea is worth your weekend.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid {{t.border}}; border-radius: 12px; background: {{t.surface}};">
+      <h3 style="margin: 0; font-size: 16px; font-weight: 600;">The Prompt Library</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">The exact prompts used to draft, structure and edit a product end to end.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid {{t.border}}; border-radius: 12px; background: {{t.surface}};">
+      <h3 style="margin: 0; font-size: 16px; font-weight: 600;">Build Templates &amp; Launch Kit</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.muted}};">Templates for the five formats that sell, plus pricing, page and delivery.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid {{t.accent}}; border-radius: 12px; background: {{t.accentSoft}};">
+      <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: {{t.accentSoftText}};">Weekly teardowns</h3>
+      <p style="margin: 0; font-size: 15px; color: {{t.accentSoftText}};">One real product broken down end to end, every week.</p>
+    </div>
+  </div>
+
+  <div style="padding: 48px 20px 0 20px;">
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 26px 22px; border: 1px solid {{t.border}}; border-radius: 12px; background: {{t.surface}};">
+      <div style="display: flex; align-items: baseline; gap: 10px;">
+        <div style="font-size: 36px; font-weight: 700; letter-spacing: -0.03em;">[YOUR PRICE]</div>
+        <div style="font-size: 14px; color: {{t.muted}};">one time</div>
+      </div>
+      <div style="height: 1px; background: {{t.border}};"></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="{{t.accent}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 3px; flex-shrink: 0;"><path d="M4 12.5 L9.5 18 L20 6.5"></path></svg>
+          <span style="font-size: 15px; color: {{t.muted}};">The full four-part system</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="{{t.accent}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 3px; flex-shrink: 0;"><path d="M4 12.5 L9.5 18 L20 6.5"></path></svg>
+          <span style="font-size: 15px; color: {{t.muted}};">Prompts, templates and launch kit</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="{{t.accent}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 3px; flex-shrink: 0;"><path d="M4 12.5 L9.5 18 L20 6.5"></path></svg>
+          <span style="font-size: 15px; color: {{t.muted}};">Weekly teardowns and free updates</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 10px; background: {{t.accent}}; color: {{t.onAccent}}; font-size: 16px; font-weight: 600;">Get the system</div>
+      <p style="margin: 0; font-size: 13px; color: {{t.muted}}; text-align: center;">[REFUND TERMS]</p>
+    </div>
+  </div>
+
+  <div style="padding: 48px 20px 0 20px;">
+    <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 22px; border-radius: 12px; background: {{t.accentSoft}}; border: 1px solid {{t.accentSoftBorder}};">
+      <h2 style="margin: 0; font-size: 25px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: {{t.accentSoftText}};">Learn it once. Use it on everything you make from here.</h2>
+      <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 10px; background: {{t.accent}}; color: {{t.onAccent}}; font-size: 16px; font-weight: 600;">Get the system</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px; padding: 24px 20px 44px 20px; border-top: 1px solid {{t.border}}; display: flex; flex-direction: column; gap: 12px;">
+    <span style="font-size: 13px; color: {{t.muted}};">SomewhereChris &copy; [YEAR]</span>
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <span style="font-size: 13px; color: {{t.muted}};">Writing</span>
+      <span style="font-size: 13px; color: {{t.muted}};">Products</span>
+      <span style="font-size: 13px; color: {{t.muted}};">Contact</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Theme"},"$preview":{"width":390,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = (this.props.theme ?? 'light') === 'dark';
+    const light = {
+      bg: '#FAFAF7', surface: '#FFFFFF', text: '#1A1A1A', muted: '#4A4A4A',
+      border: '#E5E5E0', accent: '#008080', accentText: '#00706F', onAccent: '#FFFFFF',
+      accentSoft: '#D6F6D6', accentSoftText: '#0B3D3B', accentSoftBorder: '#B4E6BE'
+    };
+    const night = {
+      bg: '#0F1413', surface: '#161C1B', text: '#F1F3F1', muted: '#9FA9A6',
+      border: '#242C2A', accent: '#4FC3BB', accentText: '#7FD8D0', onAccent: '#062220',
+      accentSoft: '#152A26', accentSoftText: '#CFEFDC', accentSoftBorder: '#28453C'
+    };
+    return { t: dark ? night : light };
+  }
+}
+</script>
+</body>
+</html>
