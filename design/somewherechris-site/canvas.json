@@ -6,7 +6,8 @@
       "y": 0,
       "w": 1440,
       "h": 5000,
-      "title": "A — The Document (light)"
+      "title": "A — The Document (light)",
+      "page": "page-light"
     },
     {
       "file": "VariationB.dc.html",
@@ -14,7 +15,8 @@
       "y": 0,
       "w": 1440,
       "h": 2900,
-      "title": "B — The Split Ledger (light)"
+      "title": "B — The Split Ledger (light)",
+      "page": "page-light"
     },
     {
       "file": "VariationC.dc.html",
@@ -22,47 +24,53 @@
       "y": 0,
       "w": 1440,
       "h": 4000,
-      "title": "C — The Statement (light)"
+      "title": "C — The Statement (light)",
+      "page": "page-light"
     },
     {
       "file": "ADark.dc.html",
       "x": 0,
-      "y": 5200,
+      "y": 0,
       "w": 1440,
       "h": 5000,
-      "title": "A — The Document (dark)"
+      "title": "A — The Document (dark)",
+      "page": "page-dark"
     },
     {
       "file": "BDark.dc.html",
       "x": 1560,
-      "y": 5200,
+      "y": 0,
       "w": 1440,
       "h": 2900,
-      "title": "B — The Split Ledger (dark)"
+      "title": "B — The Split Ledger (dark)",
+      "page": "page-dark"
     },
     {
       "file": "CDark.dc.html",
       "x": 3120,
-      "y": 5200,
+      "y": 0,
       "w": 1440,
       "h": 4000,
-      "title": "C — The Statement (dark)"
+      "title": "C — The Statement (dark)",
+      "page": "page-dark"
     },
     {
       "file": "PhoneA.dc.html",
       "x": 0,
-      "y": 10400,
+      "y": 0,
       "w": 390,
       "h": 3200,
-      "title": "A — phone (light)"
+      "title": "A — phone (light)",
+      "page": "page-mobile"
     },
     {
       "file": "PhoneADark.dc.html",
       "x": 510,
-      "y": 10400,
+      "y": 0,
       "w": 390,
       "h": 3200,
-      "title": "A — phone (dark)"
+      "title": "A — phone (dark)",
+      "page": "page-mobile"
     }
   ],
   "annotations": [
@@ -71,38 +79,58 @@
       "x": 0,
       "y": -300,
       "w": 460,
-      "text": "A — The Document\nClosest to the Tally reference: one 760px column, hairline rules, mono step numbers, the accent showing up about five times on the whole page. Calmest and most trustworthy — and the least likely to stop someone who doesn't already know who you are."
+      "text": "A — The Document\nClosest to the Tally reference: one 760px column, hairline rules, mono step numbers, the accent showing up about five times on the whole page. Calmest and most trustworthy — and the least likely to stop someone who doesn't already know who you are.",
+      "page": "page-light"
     },
     {
       "id": "dir-b",
       "x": 1560,
       "y": -300,
       "w": 460,
-      "text": "B — The Split Ledger\nA sticky offer rail on the left, the evidence on the right, so the price and the CTA never leave the screen. The four-column step table answers \"what do I actually end up with\" fast. Denser than the brand doc's default, and the rail has to collapse on mobile."
+      "text": "B — The Split Ledger\nA sticky offer rail on the left, the evidence on the right, so the price and the CTA never leave the screen. The four-column step table answers \"what do I actually end up with\" fast. Denser than the brand doc's default, and the rail has to collapse on mobile.",
+      "page": "page-light"
     },
     {
       "id": "dir-c",
       "x": 3120,
       "y": -300,
       "w": 460,
-      "text": "C — The Statement\n76px headline, a soft-green promise band and one full-bleed teal block. The most persuasive to cold traffic and the most shareable. It also leans hardest on the accents, so it's the one that could tip into loud if the copy gets hyped up."
+      "text": "C — The Statement\n76px headline, a soft-green promise band and one full-bleed teal block. The most persuasive to cold traffic and the most shareable. It also leans hardest on the accents, so it's the one that could tip into loud if the copy gets hyped up.",
+      "page": "page-light"
     },
     {
       "id": "row-dark",
-      "x": -620,
-      "y": 5200,
+      "x": 0,
+      "y": -300,
       "w": 520,
-      "text": "DARK MODE — the same three pages.\nEvery colour comes from one theme switch per artboard (the Theme chip above the frame), so light and dark stay in sync as you edit.\n\nTeal lifts from #008080 to #4FC3BB in the dark with ink-coloured button text, which keeps contrast honest. Nyanza green becomes a deep tint (#152A26) rather than a bright fill, and B's closing block goes to a dark teal band instead of a glowing slab."
+      "text": "DARK MODE — the same three pages.\nEvery colour comes from one theme switch per artboard (the Theme chip above the frame), so light and dark stay in sync as you edit.\n\nTeal lifts from #008080 to #4FC3BB in the dark with ink-coloured button text, which keeps contrast honest. Nyanza green becomes a deep tint (#152A26) rather than a bright fill, and B's closing block goes to a dark teal band instead of a glowing slab.",
+      "page": "page-dark"
     },
     {
       "id": "row-phone",
-      "x": -620,
-      "y": 10400,
+      "x": 0,
+      "y": -300,
       "w": 520,
-      "text": "MOBILE — direction A at 390px, light and dark.\nNav collapses to a menu, the two-up card grid stacks, buttons go full width at 52px, the H1 drops from 48px to 34px. The same treatment applies to B and C once you pick one."
+      "text": "MOBILE — direction A at 390px, light and dark.\nNav collapses to a menu, the two-up card grid stacks, buttons go full width at 52px, the H1 drops from 48px to 34px. The same treatment applies to B and C once you pick one.",
+      "page": "page-mobile"
     }
   ],
   "launch": {
-    "view": "canvas"
-  }
+    "view": "canvas",
+    "page": "page-light"
+  },
+  "pages": [
+    {
+      "id": "page-light",
+      "name": "Light"
+    },
+    {
+      "id": "page-dark",
+      "name": "Dark"
+    },
+    {
+      "id": "page-mobile",
+      "name": "Mobile"
+    }
+  ]
 }

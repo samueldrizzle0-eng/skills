@@ -33,6 +33,23 @@ Fonts therefore load *after* mount, and the fallback stack is what shows until
 they arrive — and what PNG/PDF export uses, since export cannot embed Google
 Fonts either way. Keep the fallback metrically close to Inter.
 
+## Two outputs
+
+`somewherechris-site.html` is the design canvas — the editable multi-artboard
+version. It carries a ~2.5 MB editor payload and can fail to open on a phone
+("Something went wrong"), so its artboards are split across three canvas pages
+(Light / Dark / Mobile) to cut how many mount at once from eight to three.
+
+`somewherechris-preview.html` is a ~66 KB standalone page built from the same
+artboards by `build-preview.py` — direction tabs, a light/dark switch, and no
+editor. This is the one to open on a phone or a weak connection. Rebuild it
+with `python3 build-preview.py` after any artboard edit.
+
+In the preview the theme holes become CSS custom properties, so light and dark
+are one attribute on `:root` rather than eight duplicated artboards. It opens
+narrow screens on the mobile artboard, since a 1440px design scaled to fit a
+phone lands around 27% and is unreadable.
+
 ## Rebuilding the canvas
 
 The published canvas is generated; the `.dc.html` files above are the source.
