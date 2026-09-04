@@ -20,6 +20,19 @@ with ink-coloured button text to hold contrast.
 Every hard fact is a bracketed placeholder — `[YOUR PRICE]`, `[X weeks]`,
 refund terms, testimonials — and needs filling in before this ships.
 
+## Fonts — do not add a stylesheet `<link>` to the helmet
+
+Each artboard renders in its own sandboxed iframe with an opaque origin, so
+eight artboards refetch the same Google Fonts stylesheet with no shared cache
+between them, and each fetch blocks its own artboard from painting. With a
+render-blocking `<link>` in the helmet the canvas took over a minute to mount
+all eight artboards (measured: 2 mounted at 18s, 5 at 45s). Injecting the same
+stylesheet from `componentDidMount` instead drops that to under 6 seconds.
+
+Fonts therefore load *after* mount, and the fallback stack is what shows until
+they arrive — and what PNG/PDF export uses, since export cannot embed Google
+Fonts either way. Keep the fallback metrically close to Inter.
+
 ## Rebuilding the canvas
 
 The published canvas is generated; the `.dc.html` files above are the source.
