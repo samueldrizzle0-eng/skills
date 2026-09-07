@@ -10,29 +10,29 @@ import json
 import re
 
 FILES = ['Main.dc.html', 'VariationB.dc.html', 'VariationC.dc.html', 'PhoneA.dc.html']
-FONT_URL = ('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800'
-            '&family=IBM+Plex+Mono:wght@400;500&display=swap')
+FONT_URL = ('https://fonts.googleapis.com/css2?family=Instrument+Serif&'
+            'family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap')
 
 
 def token_sets(src):
     out = {}
-    for name in ('light', 'night'):
+    for name in ('dark', 'light'):
         block = re.search(r'const %s = \{(.*?)\};' % name, src, re.S).group(1)
         out[name] = dict(re.findall(r"(\w+):\s*'([^']*)'", block))
     return out
 
 
 def collect_tokens():
-    light, dark = {}, {}
+    dark, light = {}, {}
     for f in FILES:
         ts = token_sets(open(f).read())
+        for k, v in ts['dark'].items():
+            assert dark.get(k, v) == v, 'dark token %s disagrees across artboards' % k
+            dark[k] = v
         for k, v in ts['light'].items():
             assert light.get(k, v) == v, 'light token %s disagrees across artboards' % k
             light[k] = v
-        for k, v in ts['night'].items():
-            assert dark.get(k, v) == v, 'dark token %s disagrees across artboards' % k
-            dark[k] = v
-    return light, dark
+    return dark, light
 
 
 def extract(path):
@@ -64,7 +64,7 @@ def vars_block(d):
 
 
 def main():
-    light, dark = collect_tokens()
+    dark, light = collect_tokens()
     panels = [
         ('a', 'A — The Document', 1440, extract('Main.dc.html')),
         ('b', 'B — The Split Ledger', 1440, extract('VariationB.dc.html')),
@@ -76,16 +76,15 @@ def main():
     out.append('''<style>
   :root {
 %s
-    --chrome-bg: #ffffff; --chrome-fg: #1A1A1A; --chrome-line: #E5E5E0; --chrome-muted: #6b6b66;
+    --chrome-bg: #0B0A0F; --chrome-fg: #F5F3F7; --chrome-line: #272430; --chrome-muted: #A29DAD;
   }
-  :root[data-theme="dark"] {
+  :root[data-theme="light"] {
 %s
-    --chrome-bg: #141817; --chrome-fg: #F1F3F1; --chrome-line: #242C2A; --chrome-muted: #9FA9A6;
+    --chrome-bg: #FFFFFF; --chrome-fg: #16141C; --chrome-line: #E6E3EC; --chrome-muted: #5C5668;
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--chrome-bg); color: var(--chrome-fg);
-         font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-                      "Helvetica Neue", Arial, sans-serif; }
+         font-family: Inter, Geist, system-ui, -apple-system, "Segoe UI", sans-serif; }
 
   header { position: sticky; top: 0; z-index: 10; background: var(--chrome-bg);
            border-bottom: 1px solid var(--chrome-line); padding: 10px 14px;
@@ -102,7 +101,7 @@ def main():
 
   .stage { overflow: hidden; }
   .scaler { transform-origin: top left; }
-</style>''' % (vars_block(light), vars_block(dark)))
+</style>''' % (vars_block(dark), vars_block(light)))
 
     out.append('''<header>
   <span class="brand">SomewhereChris — site directions</span>
@@ -113,8 +112,8 @@ def main():
     <button data-panel="m" aria-pressed="false">Mobile</button>
   </div>
   <div class="seg" id="themes">
-    <button data-theme="light" aria-pressed="true">Light</button>
-    <button data-theme="dark" aria-pressed="false">Dark</button>
+    <button data-theme="dark" aria-pressed="true">Dark</button>
+    <button data-theme="light" aria-pressed="false">Light</button>
   </div>
   <div class="hint" id="hint"></div>
 </header>''')

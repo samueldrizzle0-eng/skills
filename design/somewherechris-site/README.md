@@ -1,58 +1,68 @@
 # SomewhereChris — website design directions
 
-Three directions for the SomewhereChris site (turning ideas into digital
-products with AI), each in light and dark mode, plus a mobile pass on
-direction A.
+Three directions for the SomewhereChris site (turning what you already know into
+a digital product), built on **Design System v1.0** (`../design-system-v1.0.md`).
+Dark is the default; light is the supported variant (§2.7).
 
 | Artboard | Direction |
 |---|---|
-| `Main.dc.html` / `ADark.dc.html` | A — The Document. Single 760px column, hairline rules, mono step numbers. Closest to the Tally reference in `design.md`. |
-| `VariationB.dc.html` / `BDark.dc.html` | B — The Split Ledger. Sticky offer rail, four-column step table. |
-| `VariationC.dc.html` / `CDark.dc.html` | C — The Statement. 76px headline, soft-green promise band, full-bleed teal block. |
-| `PhoneA.dc.html` / `PhoneADark.dc.html` | Direction A at 390px. |
+| `Main.dc.html` / `ALight.dc.html` | A — The Document. 680px prose column, `display-l` serif headline, hairline-separated steps. |
+| `VariationB.dc.html` / `BLight.dc.html` | B — The Split Ledger. Sticky offer rail on the system's 4+8 grid split, step table per §6.14. |
+| `VariationC.dc.html` / `CLight.dc.html` | C — The Statement. The only direction using `display-xl`; bands alternate canvas and surface. |
+| `PhoneA.dc.html` / `PhoneALight.dc.html` | Direction A at 390px, on the mobile type ramp. |
 
-`canvas.json` positions the artboards and carries the direction notes.
+`canvas.json` splits these across three canvas pages (Dark / Light / Mobile) and
+carries the direction notes.
 
-Light and dark come from a single `theme` prop on each artboard, so the two
-modes cannot drift apart. Teal lifts from `#008080` to `#4FC3BB` in dark mode
-with ink-coloured button text to hold contrast.
+## Rules that shaped specific decisions
 
-Every hard fact is a bracketed placeholder — `[YOUR PRICE]`, `[X weeks]`,
-refund terms, testimonials — and needs filling in before this ships.
+- **Accent budget (§2.3).** One filled magenta element plus at most two magenta
+  text or icon accents per screen. Checklist ticks use `--color-success`, step
+  numerals and overlines use `--color-text-muted`, and B's top bar carries no
+  button because its sticky rail already holds the primary CTA.
+- **Ink on magenta (§0 rule 4).** `#0B0A0F` in dark, `#FFFFFF` in light. This is
+  the one place the two modes invert; `check-system.py` asserts it.
+- **Serif floor (§3.1).** Instrument Serif is used at `display-xl`, `display-l`,
+  `h1` and `h2` only, never below 20px, never in buttons, labels, or nav.
+- **Prose measure (§3.3).** Page padding sits outside the prose container so the
+  text column is a true 680px rather than 680 minus padding.
+- **Anchor definition (§7.5, §5.3).** Every direction carries the definition
+  verbatim in an accent callout below the hero.
+
+## Checking
+
+`python3 check-system.py` verifies the mechanical rules: spacing, radius, and
+type values come from tokens (§0 rule 1), the serif floor, the contrast contract
+(§2.6) recomputed from the shipped hex values, and the §10 anti-patterns
+(gradients, emoji in chrome, exclamation marks, white on the accent fill).
 
 ## Fonts — do not add a stylesheet `<link>` to the helmet
 
 Each artboard renders in its own sandboxed iframe with an opaque origin, so
 eight artboards refetch the same Google Fonts stylesheet with no shared cache
 between them, and each fetch blocks its own artboard from painting. With a
-render-blocking `<link>` in the helmet the canvas took over a minute to mount
-all eight artboards (measured: 2 mounted at 18s, 5 at 45s). Injecting the same
-stylesheet from `componentDidMount` instead drops that to under 6 seconds.
-
-Fonts therefore load *after* mount, and the fallback stack is what shows until
-they arrive — and what PNG/PDF export uses, since export cannot embed Google
-Fonts either way. Keep the fallback metrically close to Inter.
+render-blocking `<link>` the canvas took over a minute to mount all eight
+(measured: 2 at 18s, 5 at 45s). Injecting it from `componentDidMount` instead
+drops that under 6 seconds. The fallback stack is what shows until the fonts
+arrive, and what PNG/PDF export uses.
 
 ## Two outputs
 
-`somewherechris-site.html` is the design canvas — the editable multi-artboard
-version. It carries a ~2.5 MB editor payload and can fail to open on a phone
-("Something went wrong"), so its artboards are split across three canvas pages
-(Light / Dark / Mobile) to cut how many mount at once from eight to three.
+`somewherechris-site.html` is the design canvas — editable, but a ~2.5 MB editor
+payload that can fail to open on a phone.
 
-`somewherechris-preview.html` is a ~66 KB standalone page built from the same
-artboards by `build-preview.py` — direction tabs, a light/dark switch, and no
-editor. This is the one to open on a phone or a weak connection. Rebuild it
-with `python3 build-preview.py` after any artboard edit.
-
-In the preview the theme holes become CSS custom properties, so light and dark
-are one attribute on `:root` rather than eight duplicated artboards. It opens
-narrow screens on the mobile artboard, since a 1440px design scaled to fit a
-phone lands around 27% and is unreadable.
+`somewherechris-preview.html` is a ~91 KB standalone page built from the same
+artboards by `build-preview.py` — direction tabs, a dark/light switch, no editor.
+This is the one to open on a phone. Rebuild it with `python3 build-preview.py`
+after any artboard edit. It opens narrow screens on the mobile artboard, since a
+1440px design scaled to fit a phone is unreadable.
 
 ## Rebuilding the canvas
 
-The published canvas is generated; the `.dc.html` files above are the source.
-To regenerate after an edit, re-run the `design` skill's seeder over all eight
-artboards plus `canvas.json`, then republish the output to the same artifact
-URL.
+Re-run the `design` skill's seeder over all eight artboards plus `canvas.json`,
+then republish to the same artifact URL with `contract: "0.1.31"`.
+
+## Placeholders
+
+Every hard fact is bracketed — `[YOUR PRICE]`, `[X weeks]`, `[REFUND TERMS]`,
+testimonials — and needs filling in before this ships.
