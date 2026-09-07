@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Open Graph source — 1200x630</title>
+<!--
+  Source for assets/og.png. Rendered at exactly 1200x630 and screenshotted;
+  see the "Regenerating the social image" section of README.md.
+
+  Direction C's hero, reduced to what survives at thumbnail size: the wordmark,
+  the headline, one line of subhead, and a single accent rule. §2.3's accent
+  budget allows one magenta element, and the 48px 2px rule is the one §7.10
+  already defines for section openers.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<style>
+  html, body { margin: 0; padding: 0; }
+
+  .og {
+    width: 1200px;
+    height: 630px;
+    background: var(--color-canvas);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    padding: var(--space-20);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .og__mark {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-h4);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .og__rule {
+    width: 48px;
+    height: 2px;
+    background: var(--accent-500);
+  }
+
+  .og__headline {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-display-xl);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0;
+    max-width: 900px;
+    /* Without this the headline strands "app." alone on the second line. */
+    text-wrap: balance;
+  }
+
+  .og__sub {
+    font-size: var(--text-body-lg);
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 680px;
+  }
+
+  .og__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-overline);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+</style>
+</head>
+<body>
+  <div class="og" id="og">
+
+    <div class="og__mark">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      Samuel Chris
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+      <div class="og__rule"></div>
+      <h1 class="og__headline">Your ideas are worth more than a notes app.</h1>
+      <p class="og__sub">
+        One repeatable process for turning what you already know into a digital
+        product people pay for.
+      </p>
+    </div>
+
+    <div class="og__foot">
+      <span>A skill you learn once</span>
+    </div>
+
+  </div>
+</body>
+</html>

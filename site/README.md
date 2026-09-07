@@ -1,4 +1,4 @@
-# SomewhereChris — website
+# Samuel Chris — website
 
 Static HTML and CSS. No framework, no build step, no dependencies. Open a file,
 edit it, save it. The whole site is 7 pages and 3 stylesheets.
@@ -90,8 +90,23 @@ grep -rn '\[[A-Z][A-Z ]*\]' --include='*.html' --include='*.xml' --include='*.tx
 `netlify.toml` publishes this directory as-is. Vercel and GitHub Pages need no
 config beyond pointing them at `site/`. There is nothing to build.
 
-An `assets/og.png` (1200×630) is referenced by every page and does not exist yet.
-Social previews will be blank until it does.
+## Regenerating the social image
+
+`assets/og.png` (1200×630) is rendered from `assets/og-source.html`, which uses
+the same tokens and fonts as the site, so it can never drift from the design.
+
+```sh
+python3 -m http.server 8181 &   # from this directory
+node make-og.mjs
+```
+
+The script refuses to write the PNG unless Instrument Serif actually loaded — a
+fallback serif on every social share is the kind of thing nobody notices until
+it is everywhere. It also fails if the headline escapes the card.
+
+`make-og.mjs` and `og-source.html` are published along with the rest of the
+directory. They are inert and contain nothing private; move them out of `site/`
+if you would rather they weren't reachable.
 
 ## A note on the duplicated shell
 
