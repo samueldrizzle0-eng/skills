@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    p { text-wrap: pretty; }
+  </style>
+</helmet>
+<div style="--link: {{t.accent400}}; --link-hover: {{t.accent300}}; background: {{t.canvas}}; color: {{t.text}}; min-height: 100%;">
+<div style="background: {{t.canvas}}; border-bottom: 1px solid {{t.border}};">
+  <div style="padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{t.text}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">SomewhereChris</span>
+    </div>
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.subtle}};">Idea, product, paid</div>
+  </div>
+</div>
+  <div style="display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: start;">
+    <div style="position: sticky; top: 0; background: {{t.surface}}; border-right: 1px solid {{t.border}}; padding: 80px 40px 80px 48px; display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">The offer</div>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: {{t.text}};">Build and sell your first digital product in [X weeks].</h1>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: {{t.muted}};">One process for turning what you already know into something people can buy, with AI handling the drafting, structuring, and packaging.</p>
+      <div style="height: 1px; background: {{t.border}};"></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <span style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}}; font-variant-numeric: tabular-nums;">[YOUR PRICE]</span>
+        <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">one time</span>
+      </div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: {{t.accent500}}; color: {{t.inverse}}; width: 100%;">Get the system</div>
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.subtle}}; text-align: center;">[REFUND TERMS], lifetime updates</div>
+      <div style="height: 1px; background: {{t.border}};"></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: {{t.text}}; font-variant-numeric: tabular-nums;">[X]</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}};">products shipped by people inside</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: {{t.text}}; font-variant-numeric: tabular-nums;">[X]</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}};">weekly teardowns in the archive</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start; background: {{t.accentSoft}}; border-left: 3px solid {{t.accent500}}; border-radius: 10px; padding: 16px;">
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.text}};">A digital product is a piece of knowledge or experience packaged once and sold repeatedly.</p>
+      </div>
+    </div>
+    <div style="padding: 80px 48px 0 48px; display: flex; flex-direction: column; gap: 96px; max-width: 680px;">
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">The problem</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}};">The idea is rarely what stops you.</h2>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: {{t.muted}};">The distance between "I have an idea" and "here is the thing you can buy" is full of decisions nobody taught you how to make. What format. What goes in it. What to charge. Where it lives after someone pays.</p>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: {{t.muted}};">AI closes that gap. It doesn't replace your judgement, because your judgement is the product. It removes the 6 months you'd otherwise spend stalling.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">The process</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}};">4 moves, and what each one leaves you with.</h2>
+        <div style="border: 1px solid {{t.border}}; border-radius: 14px; overflow: hidden; margin-top: 8px;">
+          <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 12px 16px; background: {{t.raised}}; border-bottom: 1px solid {{t.border}}; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">
+            <div>Step</div><div>What you do</div><div>What you end with</div><div style="text-align: right;">Time</div>
+          </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid {{t.border}};">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; font-variant-numeric: tabular-nums;">01</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: {{t.text}};">Find the idea worth building</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}}; margin-top: 4px;">Mine what people already ask you for.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">1 idea, scored and chosen</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid {{t.border}};">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; font-variant-numeric: tabular-nums;">02</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: {{t.text}};">Shape it into 1 product</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}}; margin-top: 4px;">One promise, one format, one buyer.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">A one-page product spec</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid {{t.border}};">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; font-variant-numeric: tabular-nums;">03</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: {{t.text}};">Build it with AI</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}}; margin-top: 4px;">Draft, structure, design, package.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">A finished, deliverable product</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px;">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; font-variant-numeric: tabular-nums;">04</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: {{t.text}};">Put it up for sale</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.muted}}; margin-top: 4px;">Price it, page it, deliver it, sell it.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">A live page and your first sale</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: {{t.subtle}}; text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">Contents</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}};">Everything that comes with it.</h2>
+        <div style="display: flex; flex-direction: column; margin-top: 8px;">
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">The Idea Filter</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">A 20-minute pass that tells you whether an idea is worth your weekend, before you spend it.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">The Prompt Library</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">The exact prompts used to draft, structure, and edit a product, written for the job rather than generic ones you have to fight.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">Build Templates</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Docs, Notion, and page templates for the 5 formats that reliably sell.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid {{t.border}};">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">The Launch Kit</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Sales page copy, pricing frames, checkout, and delivery, set up once and reused on everything after.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid {{t.border}}; border-bottom: 1px solid {{t.border}};">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: {{t.text}};">Weekly teardowns</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Every week, 1 real digital product taken apart: what it sells, how it was built, what it charges.</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">Proof</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}};">What happened when they ran it.</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 8px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; background: {{t.surface}}; border: 1px solid {{t.border}}; border-radius: 14px; padding: 24px;">
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.text}};">[TESTIMONIAL, a real quote naming what they were stuck on before.]</p>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.subtle}};">[NAME], [WHAT THEY BUILT]</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; background: {{t.surface}}; border: 1px solid {{t.border}}; border-radius: 14px; padding: 24px;">
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.text}};">[TESTIMONIAL, a real quote about the first product they shipped and what it earned.]</p>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: {{t.subtle}};">[NAME], [WHAT THEY BUILT]</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{t.muted}};">Questions</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; margin-top: 8px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: {{t.text}};">Do I need to know how to code?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">No. Everything here is writing, templates, and tools you can learn in an afternoon.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: {{t.text}};">I don't have an idea yet.</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Step 1 is entirely about finding one. Most people have 3 already and cannot see them.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: {{t.text}};">How long does it actually take?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">[X weeks] working through it in order. Faster if the idea is already clear.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: {{t.text}};">Is this just AI writing it for me?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">No. AI drafts, you decide. The judgement is the product.</p>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px; background: {{t.surface}}; border: 1px solid {{t.border}}; border-radius: 20px; padding: 40px;">
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: {{t.text}};">Learn it once. Use it on everything you make from here.</h2>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: {{t.muted}};">The first product is the hard one.</p>
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: {{t.surface}}; color: {{t.text}}; border: 1px solid {{t.borderStrong}};">Get the system</div>
+      </div>
+
+      <div style="padding: 32px 0 48px 0; border-top: 1px solid {{t.border}}; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.subtle}};">SomewhereChris, [YEAR]</span>
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Writing</span>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Products</span>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: {{t.muted}};">Contact</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark","section":"Theme"},"$preview":{"width":1440,"height":3150}}'>
+class Component extends DCLogic {
+  // Fonts load after mount. A render-blocking <link> in the helmet stalls the
+  // artboard: each one renders in its own sandboxed iframe with an opaque
+  // origin, so every artboard refetches the stylesheet with no shared cache.
+  componentDidMount() {
+    if (typeof document === 'undefined' || document.getElementById('dc-fonts')) return;
+    const link = document.createElement('link');
+    link.id = 'dc-fonts';
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
+    document.head.appendChild(link);
+  }
+
+  renderVals() {
+    // Design System v1.0 §8.1. Dark is the default; light is the variant (§2.7).
+    const dark = {
+      canvas: '#0B0A0F', surface: '#16141C', raised: '#1E1B26', overlay: '#262230',
+      border: '#272430', borderStrong: '#3A3545',
+      text: '#F5F3F7', muted: '#A29DAD', subtle: '#888195', inverse: '#0B0A0F',
+      accent300: '#FF7FC0', accent400: '#FF54A9', accent500: '#FF2D96', accent600: '#E0197C',
+      accentSoft: 'rgba(255, 45, 150, 0.12)', accentRing: 'rgba(255, 45, 150, 0.40)',
+      success: '#34D399', successSoft: 'rgba(52, 211, 153, 0.12)',
+      glow: '0 0 0 1px rgba(255,45,150,0.35), 0 8px 32px rgba(255,45,150,0.18)'
+    };
+    const light = {
+      canvas: '#FFFFFF', surface: '#FAF9FB', raised: '#F3F1F6', overlay: '#FFFFFF',
+      border: '#E6E3EC', borderStrong: '#CFC9D9',
+      text: '#16141C', muted: '#5C5668', subtle: '#6F6982', inverse: '#FFFFFF',
+      accent300: '#A80F57', accent400: '#C9146A', accent500: '#C9146A', accent600: '#A80F57',
+      accentSoft: 'rgba(201, 20, 106, 0.08)', accentRing: 'rgba(201, 20, 106, 0.32)',
+      success: '#047857', successSoft: 'rgba(4, 120, 87, 0.10)',
+      glow: '0 0 0 1px rgba(201,20,106,0.30), 0 8px 32px rgba(201,20,106,0.12)'
+    };
+    return { t: (this.props.theme ?? 'dark') === 'light' ? light : dark };
+  }
+}
+</script>
+</body>
+</html>

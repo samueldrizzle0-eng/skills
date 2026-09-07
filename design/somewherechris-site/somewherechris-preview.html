@@ -1,0 +1,811 @@
+<title>SomewhereChris Site Preview</title>
+<style>
+  :root {
+    --accent300: #FF7FC0;
+    --accent400: #FF54A9;
+    --accent500: #FF2D96;
+    --accent600: #E0197C;
+    --accentRing: rgba(255, 45, 150, 0.40);
+    --accentSoft: rgba(255, 45, 150, 0.12);
+    --border: #272430;
+    --borderStrong: #3A3545;
+    --canvas: #0B0A0F;
+    --glow: 0 0 0 1px rgba(255,45,150,0.35), 0 8px 32px rgba(255,45,150,0.18);
+    --inverse: #0B0A0F;
+    --muted: #A29DAD;
+    --overlay: #262230;
+    --raised: #1E1B26;
+    --subtle: #888195;
+    --success: #34D399;
+    --successSoft: rgba(52, 211, 153, 0.12);
+    --surface: #16141C;
+    --text: #F5F3F7;
+    --chrome-bg: #0B0A0F; --chrome-fg: #F5F3F7; --chrome-line: #272430; --chrome-muted: #A29DAD;
+  }
+  :root[data-theme="light"] {
+    --accent300: #A80F57;
+    --accent400: #C9146A;
+    --accent500: #C9146A;
+    --accent600: #A80F57;
+    --accentRing: rgba(201, 20, 106, 0.32);
+    --accentSoft: rgba(201, 20, 106, 0.08);
+    --border: #E6E3EC;
+    --borderStrong: #CFC9D9;
+    --canvas: #FFFFFF;
+    --glow: 0 0 0 1px rgba(201,20,106,0.30), 0 8px 32px rgba(201,20,106,0.12);
+    --inverse: #FFFFFF;
+    --muted: #5C5668;
+    --overlay: #FFFFFF;
+    --raised: #F3F1F6;
+    --subtle: #6F6982;
+    --success: #047857;
+    --successSoft: rgba(4, 120, 87, 0.10);
+    --surface: #FAF9FB;
+    --text: #16141C;
+    --chrome-bg: #FFFFFF; --chrome-fg: #16141C; --chrome-line: #E6E3EC; --chrome-muted: #5C5668;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--chrome-bg); color: var(--chrome-fg);
+         font-family: Inter, Geist, system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--chrome-bg);
+           border-bottom: 1px solid var(--chrome-line); padding: 10px 14px;
+           display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .brand { font-size: 14px; font-weight: 600; margin-right: auto; }
+  .seg { display: flex; gap: 4px; background: var(--chrome-line);
+         padding: 3px; border-radius: 9px; }
+  .seg button { appearance: none; border: 0; background: transparent;
+                color: var(--chrome-muted); font: inherit; font-size: 13px;
+                font-weight: 500; padding: 8px 12px; border-radius: 7px;
+                cursor: pointer; min-height: 40px; }
+  .seg button[aria-pressed="true"] { background: var(--chrome-bg); color: var(--chrome-fg); }
+  .hint { width: 100%; font-size: 12px; color: var(--chrome-muted); }
+
+  .stage { overflow: hidden; }
+  .scaler { transform-origin: top left; }
+</style>
+<header>
+  <span class="brand">SomewhereChris — site directions</span>
+  <div class="seg" id="dirs">
+    <button data-panel="a" aria-pressed="true">A</button>
+    <button data-panel="b" aria-pressed="false">B</button>
+    <button data-panel="c" aria-pressed="false">C</button>
+    <button data-panel="m" aria-pressed="false">Mobile</button>
+  </div>
+  <div class="seg" id="themes">
+    <button data-theme="dark" aria-pressed="true">Dark</button>
+    <button data-theme="light" aria-pressed="false">Light</button>
+  </div>
+  <div class="hint" id="hint"></div>
+</header>
+<div class="panel" id="panel-a" data-width="1440">
+  <div class="stage"><div class="scaler" style="width:1440px">
+<div style="--link: var(--accent400); --link-hover: var(--accent300); background: var(--canvas); color: var(--text); min-height: 100%;">
+<div style="background: var(--canvas); border-bottom: 1px solid var(--border);">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text);"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">SomewhereChris</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The system</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">What's inside</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Writing</span>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse);">Get the system</div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 128px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">A skill you learn once</div>
+    <h1 style="margin: 16px 0 0 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 48px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; color: var(--text);">Turn what you already know into a digital product people pay for.</h1>
+    <p style="margin: 24px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.65; font-weight: 400; color: var(--muted); max-width: 560px;">You don't need a team, a developer, or a launch budget. You need 1 repeatable process, and AI to do the drafting.</p>
+    <div style="display: flex; align-items: center; gap: 16px; margin-top: 32px; flex-wrap: wrap;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse);">Get the system</div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: transparent; color: var(--muted);">Read the first step</div>
+    </div>
+    <p style="margin: 20px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[X] service providers have built and sold their first product this way.</p>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 0px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <div style="display: flex; gap: 12px; align-items: flex-start; background: var(--accentSoft); border-left: 3px solid var(--accent500); border-radius: 10px; padding: 16px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--accent400); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16 V12"></path><path d="M12 8 H12.01"></path></svg>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">A digital product is a piece of knowledge or experience packaged once and sold repeatedly.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">The idea is rarely what stops you.</h2>
+    <p style="margin: 16px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">The distance between "I have an idea" and "here is the thing you can buy" is full of decisions nobody taught you how to make. What format. What goes in it. What to charge. Where it lives after someone pays.</p>
+    <p style="margin: 16px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">AI closes that gap. It doesn't replace your judgement, because your judgement is the product. It removes the 6 months you'd otherwise spend stalling because you've never done this before.</p>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">How it works</div>
+    <h2 style="margin: 12px 0 0 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">4 moves, in order.</h2>
+    <div style="display: flex; flex-direction: column; margin-top: 32px;">
+      <div style="display: flex; gap: 24px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); min-width: 28px; padding-top: 4px; font-variant-numeric: tabular-nums;">01</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Find the idea worth building</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pull from what people already ask you for. A problem you have solved more than twice beats a market you have to invent.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); min-width: 28px; padding-top: 4px; font-variant-numeric: tabular-nums;">02</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Shape it into 1 product</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">One promise, one format, one buyer. This is the pass that stops a good idea becoming a 9-month course nobody finishes.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); min-width: 28px; padding-top: 4px; font-variant-numeric: tabular-nums;">03</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Build it with AI</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Draft, structure, design, and package it in days, with prompts written for this job rather than generic ones you have to argue with.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); min-width: 28px; padding-top: 4px; font-variant-numeric: tabular-nums;">04</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Put it up for sale</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pricing, page, checkout, and delivery, plus a plan for your first 10 customers. The part most people skip and then blame the product.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">Everything that comes with it.</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Idea Filter</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A 20-minute pass that tells you whether an idea is worth your weekend, before you spend it.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Prompt Library</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The exact prompts used to draft, structure, and edit a product from end to end.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Build Templates</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Docs, Notion, and page templates for the 5 formats that reliably sell.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Launch Kit</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Sales page copy, pricing frames, checkout, and delivery, set up once and reused after.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; background: var(--raised); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-top: 16px;">
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Weekly teardowns</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Every week, 1 real digital product taken apart: what it sells, how it was built, what it charges, and the one thing worth stealing.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">What happened when they ran it.</h2>
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--text);">[TESTIMONIAL, a real quote naming what they were stuck on before.]</p>
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[NAME], [WHAT THEY BUILT]</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--text);">[TESTIMONIAL, a real quote about the first product they shipped and what it earned.]</p>
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[NAME], [WHAT THEY BUILT]</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">One payment. Yours for good.</h2>
+    <div style="display: flex; flex-direction: column; gap: 24px; background: var(--surface); border: 1px solid var(--accentRing); border-radius: 20px; padding: 40px; margin-top: 32px; box-shadow: var(--glow);">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text); font-variant-numeric: tabular-nums;">[YOUR PRICE]</div>
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">one time, lifetime updates</div>
+      </div>
+      <div style="height: 1px; background: var(--border);"></div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The full 4-part system, idea to launch</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Prompt library, build templates, and launch kit</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Weekly teardowns for as long as they run</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Every update, free, forever</span>
+        </div>
+      </div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse); width: 100%;">Get the system</div>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle); text-align: center;">[REFUND TERMS, for example 30 days, no questions asked.]</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">Before you ask.</h2>
+    <div style="display: flex; flex-direction: column; margin-top: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Do I need to know how to code?</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">No. Everything here is writing, templates, and tools you can learn in an afternoon.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">What if I don't have an idea yet?</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Step 1 is entirely about finding one. Most people already have 3 and cannot see them.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">How long until I have something to sell?</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">[X weeks] if you work through it in order. Faster if the idea is already clear.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Is this just AI writing it for me?</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">No. AI drafts, you decide. Your judgement is the product. The tool only makes it faster to get out of your head.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text);">Learn it once. Use it on everything you make from here.</h2>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.65; font-weight: 400; color: var(--muted); max-width: 560px;">The first product is the hard one. After that you're running the same process again with a better idea.</p>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse);">Get the system</div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); border-top: 1px solid var(--border);">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 32px 48px 48px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+    <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--subtle);">SomewhereChris, [YEAR]</span>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Writing</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Products</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Contact</span>
+    </div>
+  </div>
+</div>
+</div>
+  </div></div>
+</div>
+<div class="panel" id="panel-b" data-width="1440" hidden>
+  <div class="stage"><div class="scaler" style="width:1440px">
+<div style="--link: var(--accent400); --link-hover: var(--accent300); background: var(--canvas); color: var(--text); min-height: 100%;">
+<div style="background: var(--canvas); border-bottom: 1px solid var(--border);">
+  <div style="padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text);"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">SomewhereChris</span>
+    </div>
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle);">Idea, product, paid</div>
+  </div>
+</div>
+  <div style="display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: start;">
+    <div style="position: sticky; top: 0; background: var(--surface); border-right: 1px solid var(--border); padding: 80px 40px 80px 48px; display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">The offer</div>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text);">Build and sell your first digital product in [X weeks].</h1>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">One process for turning what you already know into something people can buy, with AI handling the drafting, structuring, and packaging.</p>
+      <div style="height: 1px; background: var(--border);"></div>
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <span style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text); font-variant-numeric: tabular-nums;">[YOUR PRICE]</span>
+        <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">one time</span>
+      </div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse); width: 100%;">Get the system</div>
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle); text-align: center;">[REFUND TERMS], lifetime updates</div>
+      <div style="height: 1px; background: var(--border);"></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text); font-variant-numeric: tabular-nums;">[X]</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted);">products shipped by people inside</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text); font-variant-numeric: tabular-nums;">[X]</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted);">weekly teardowns in the archive</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start; background: var(--accentSoft); border-left: 3px solid var(--accent500); border-radius: 10px; padding: 16px;">
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">A digital product is a piece of knowledge or experience packaged once and sold repeatedly.</p>
+      </div>
+    </div>
+    <div style="padding: 80px 48px 0 48px; display: flex; flex-direction: column; gap: 96px; max-width: 680px;">
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">The problem</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">The idea is rarely what stops you.</h2>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">The distance between "I have an idea" and "here is the thing you can buy" is full of decisions nobody taught you how to make. What format. What goes in it. What to charge. Where it lives after someone pays.</p>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">AI closes that gap. It doesn't replace your judgement, because your judgement is the product. It removes the 6 months you'd otherwise spend stalling.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">The process</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">4 moves, and what each one leaves you with.</h2>
+        <div style="border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-top: 8px;">
+          <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 12px 16px; background: var(--raised); border-bottom: 1px solid var(--border); font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">
+            <div>Step</div><div>What you do</div><div>What you end with</div><div style="text-align: right;">Time</div>
+          </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid var(--border);">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">01</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: var(--text);">Find the idea worth building</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted); margin-top: 4px;">Mine what people already ask you for.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">1 idea, scored and chosen</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid var(--border);">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">02</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: var(--text);">Shape it into 1 product</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted); margin-top: 4px;">One promise, one format, one buyer.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A one-page product spec</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px; border-bottom: 1px solid var(--border);">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">03</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: var(--text);">Build it with AI</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted); margin-top: 4px;">Draft, structure, design, package.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A finished, deliverable product</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1.4fr) minmax(0, 1fr) 96px; gap: 20px; padding: 16px; align-items: start; min-height: 56px;">
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">04</div>
+          <div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; font-weight: 600; color: var(--text);">Put it up for sale</div><div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--muted); margin-top: 4px;">Price it, page it, deliver it, sell it.</div></div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A live page and your first sale</div>
+          <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); text-align: right; font-variant-numeric: tabular-nums;">[X days]</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">Contents</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">Everything that comes with it.</h2>
+        <div style="display: flex; flex-direction: column; margin-top: 8px;">
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--border);">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">The Idea Filter</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A 20-minute pass that tells you whether an idea is worth your weekend, before you spend it.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--border);">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">The Prompt Library</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The exact prompts used to draft, structure, and edit a product, written for the job rather than generic ones you have to fight.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--border);">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">Build Templates</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Docs, Notion, and page templates for the 5 formats that reliably sell.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--border);">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">The Launch Kit</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Sales page copy, pricing frames, checkout, and delivery, set up once and reused on everything after.</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">Weekly teardowns</div>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Every week, 1 real digital product taken apart: what it sells, how it was built, what it charges.</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">Proof</div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">What happened when they ran it.</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 8px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">[TESTIMONIAL, a real quote naming what they were stuck on before.]</p>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[NAME], [WHAT THEY BUILT]</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px;">
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">[TESTIMONIAL, a real quote about the first product they shipped and what it earned.]</p>
+          <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[NAME], [WHAT THEY BUILT]</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">Questions</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; margin-top: 8px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Do I need to know how to code?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">No. Everything here is writing, templates, and tools you can learn in an afternoon.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">I don't have an idea yet.</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Step 1 is entirely about finding one. Most people have 3 already and cannot see them.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">How long does it actually take?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">[X weeks] working through it in order. Faster if the idea is already clear.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Is this just AI writing it for me?</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">No. AI drafts, you decide. The judgement is the product.</p>
+        </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 40px;">
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">Learn it once. Use it on everything you make from here.</h2>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">The first product is the hard one.</p>
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--surface); color: var(--text); border: 1px solid var(--borderStrong);">Get the system</div>
+      </div>
+
+      <div style="padding: 32px 0 48px 0; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--subtle);">SomewhereChris, [YEAR]</span>
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Writing</span>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Products</span>
+          <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Contact</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div></div>
+</div>
+<div class="panel" id="panel-c" data-width="1440" hidden>
+  <div class="stage"><div class="scaler" style="width:1440px">
+<div style="--link: var(--accent400); --link-hover: var(--accent300); background: var(--canvas); color: var(--text); min-height: 100%;">
+<div style="background: var(--canvas);">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text);"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">SomewhereChris</span>
+    </div>
+    <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse);">Get the system</div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 128px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">A skill you learn once</div>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 64px; line-height: 1.05; font-weight: 400; letter-spacing: -0.03em; color: var(--text);">Your ideas are worth more than a notes app.</h1>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.65; font-weight: 400; color: var(--muted); max-width: 560px;">Learn the 1 process for turning what you already know into a digital product people pay for, with AI doing the drafting, structuring, and packaging.</p>
+      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;">
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse);">Get the system</div>
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: transparent; color: var(--muted);">Read the first step</div>
+      </div>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[X] service providers have built and sold their first product this way.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 0px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="max-width: 680px; margin: 0 auto; display: flex; gap: 12px; align-items: flex-start; background: var(--accentSoft); border-left: 3px solid var(--accent500); border-radius: 10px; padding: 16px;">
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">A digital product is a piece of knowledge or experience packaged once and sold repeatedly.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">01</div>
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">You already have the idea</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">It is sitting in the thing people keep asking you to explain.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">02</div>
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">AI closes the gap</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Days of drafting, structuring, and packaging instead of months of stalling.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">03</div>
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The skill compounds</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The second product takes a fraction of the time the first one did.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text); max-width: 680px;">4 moves. In order. No detours.</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 48px;">
+      <div style="display: flex; gap: 24px; align-items: flex-start;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--subtle); min-width: 64px; font-variant-numeric: tabular-nums;">01</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text);">Find the idea worth building</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pull from what people already ask you for. A problem you have solved more than twice beats a market you have to invent.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: flex-start;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--subtle); min-width: 64px; font-variant-numeric: tabular-nums;">02</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text);">Shape it into 1 product</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">One promise, one format, one buyer. This is the pass that stops a good idea becoming a 9-month course nobody finishes.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: flex-start;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--subtle); min-width: 64px; font-variant-numeric: tabular-nums;">03</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text);">Build it with AI</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Draft, structure, design, and package it in days, with prompts written for this job rather than generic ones you have to argue with.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: flex-start;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--subtle); min-width: 64px; font-variant-numeric: tabular-nums;">04</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--text);">Put it up for sale</h3>
+          <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pricing, page, checkout, and delivery, plus a plan for your first 10 customers. The part most people skip and then blame the product.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text); max-width: 680px;">Everything that comes with it.</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin-top: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Idea Filter</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A 20-minute pass that tells you whether an idea is worth your weekend.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Prompt Library</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The exact prompts used to draft, structure, and edit a product end to end.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Build Templates</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Docs, Notion, and page templates for the 5 formats that reliably sell.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">The Launch Kit</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Sales page copy, pricing frames, checkout, and delivery, set up once.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Weekly Teardowns</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">1 real product taken apart every week: what it sells, how it was built, what it charges.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--text);">Lifetime updates</h3>
+        <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The tools move fast. Every revision lands in your account, free.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="max-width: 680px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px;">
+      <p style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">[PULL QUOTE, the strongest sentence a real customer has said about this, in their words.]</p>
+      <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[NAME], [WHAT THEY BUILT]</div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 32px;">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text); text-align: center;">One payment. Yours for good.</h2>
+      <div style="width: 100%; max-width: 560px; display: flex; flex-direction: column; align-items: center; gap: 24px; background: var(--surface); border: 1px solid var(--accentRing); border-radius: 20px; padding: 40px; box-shadow: var(--glow);">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 48px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; color: var(--text); font-variant-numeric: tabular-nums;">[YOUR PRICE]</div>
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted); text-align: center;">one time, lifetime updates, [REFUND TERMS]</div>
+        <div style="height: 1px; background: var(--border); width: 100%;"></div>
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+            <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The full 4-part system, idea to launch</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+            <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Prompt library, templates, and launch kit</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+            <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Weekly teardowns and every future update</span>
+          </div>
+        </div>
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse); width: 100%;">Get the system</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); padding: 96px 48px 96px 48px;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 48px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; color: var(--text); max-width: 680px;">Learn it once. Use it on everything you make from here.</h2>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.65; font-weight: 400; color: var(--muted); max-width: 560px;">The first product is the hard one. After that you're running the same process again with a better idea.</p>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--surface); color: var(--text); border: 1px solid var(--borderStrong);">Get the system</div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas); border-top: 1px solid var(--border);">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 32px 48px 48px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+    <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--subtle);">SomewhereChris, [YEAR]</span>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Writing</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Products</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Contact</span>
+    </div>
+  </div>
+</div>
+</div>
+  </div></div>
+</div>
+<div class="panel" id="panel-m" data-width="390" hidden>
+  <div class="stage"><div class="scaler" style="width:390px">
+<div style="--link: var(--accent400); --link-hover: var(--accent300); background: var(--canvas); color: var(--text); min-height: 100%;">
+<div style="background: var(--canvas); border-bottom: 1px solid var(--border);">
+  <div style="height: 68px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text);"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; font-weight: 600; color: var(--text);">SomewhereChris</span>
+    </div>
+    <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke: var(--muted);"><path d="M4 6 H20"></path><path d="M4 12 H20"></path><path d="M4 18 H20"></path></svg>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">A skill you learn once</div>
+    <h1 style="margin: 16px 0 0 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 34px; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; color: var(--text);">Turn what you already know into a digital product people pay for.</h1>
+    <p style="margin: 16px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 17px; line-height: 1.6; font-weight: 400; color: var(--muted);">You don't need a team, a developer, or a launch budget. You need 1 repeatable process, and AI to do the drafting.</p>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 32px;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse); width: 100%;">Get the system</div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: transparent; color: var(--muted); width: 100%;">Read the first step</div>
+    </div>
+    <p style="margin: 20px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle);">[X] service providers have built and sold their first product this way.</p>
+  </div>
+</div>
+<div style="background: var(--canvas);">
+  <div style="padding: 0px 16px 64px 16px;">
+    <div style="display: flex; gap: 12px; align-items: flex-start; background: var(--accentSoft); border-left: 3px solid var(--accent500); border-radius: 10px; padding: 16px;">
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--text);">A digital product is a piece of knowledge or experience packaged once and sold repeatedly.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 25px; line-height: 1.25; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">The idea is rarely what stops you.</h2>
+    <p style="margin: 16px 0 0 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: var(--muted);">The distance between "I have an idea" and "here is the thing you can buy" is full of decisions nobody taught you how to make. AI closes that gap. Your judgement is still the product.</p>
+  </div>
+</div>
+<div style="background: var(--canvas);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);">How it works</div>
+    <h2 style="margin: 12px 0 24px 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 25px; line-height: 1.25; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">4 moves, in order.</h2>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 20px 0; border-top: 1px solid var(--border);">
+      <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">01</div>
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Find the idea worth building</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pull from what people already ask you for.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 20px 0; border-top: 1px solid var(--border);">
+      <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">02</div>
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Shape it into 1 product</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">One promise, one format, one buyer.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 20px 0; border-top: 1px solid var(--border);">
+      <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">03</div>
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Build it with AI</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Draft, structure, design, and package in days.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div style="font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--subtle); font-variant-numeric: tabular-nums;">04</div>
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Put it up for sale</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Pricing, page, delivery, first 10 customers.</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <h2 style="margin: 0 0 24px 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 25px; line-height: 1.25; font-weight: 400; letter-spacing: -0.015em; color: var(--text);">Everything that comes with it.</h2>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px;">
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">The Idea Filter</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">A 20-minute pass that tells you whether an idea is worth your weekend.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px;">
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">The Prompt Library</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The exact prompts used to draft, structure, and edit a product end to end.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px;">
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Build Templates and Launch Kit</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Templates for the 5 formats that sell, plus pricing, page, and delivery.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px;">
+      <h3 style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--text);">Weekly teardowns</h3>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">1 real product broken down end to end, every week.</p>
+    </div>
+    </div>
+  </div>
+</div>
+<div style="background: var(--canvas);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <div style="display: flex; flex-direction: column; gap: 24px; background: var(--surface); border: 1px solid var(--accentRing); border-radius: 20px; padding: 24px; box-shadow: var(--glow);">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <div style="font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 30px; line-height: 1.2; font-weight: 400; letter-spacing: -0.02em; color: var(--text); font-variant-numeric: tabular-nums;">[YOUR PRICE]</div>
+        <div style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">one time</div>
+      </div>
+      <div style="height: 1px; background: var(--border);"></div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">The full 4-part system</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Prompts, templates, and launch kit</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--success); flex-shrink: 0;"><path d="M20 6 L9 17 L4 12"></path></svg>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Weekly teardowns and free updates</span>
+      </div>
+      </div>
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--accent500); color: var(--inverse); width: 100%;">Get the system</div>
+      <p style="margin: 0; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 13px; line-height: 1.45; font-weight: 400; color: var(--subtle); text-align: center;">[REFUND TERMS]</p>
+    </div>
+  </div>
+</div>
+<div style="background: var(--surface);">
+  <div style="padding: 64px 16px 64px 16px;">
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Fraunces, 'Times New Roman', Georgia, serif; font-size: 30px; line-height: 1.2; font-weight: 400; letter-spacing: -0.02em; color: var(--text);">Learn it once. Use it on everything you make from here.</h2>
+    <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 10px; font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1; background: var(--surface); color: var(--text); border: 1px solid var(--borderStrong); width: 100%; margin-top: 24px;">Get the system</div>
+  </div>
+</div>
+<div style="background: var(--canvas); border-top: 1px solid var(--border);">
+  <div style="padding: 24px 16px 48px 16px; display: flex; flex-direction: column; gap: 12px;">
+    <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--subtle);">SomewhereChris, [YEAR]</span>
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Writing</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Products</span>
+      <span style="font-family: Inter, Geist, -apple-system, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; color: var(--muted);">Contact</span>
+    </div>
+  </div>
+</div>
+</div>
+  </div></div>
+</div>
+<script>
+  var LABELS = {"a": "A \u2014 The Document", "b": "B \u2014 The Split Ledger", "c": "C \u2014 The Statement", "m": "A \u2014 Mobile, 390px"};
+  var current = "a";
+
+  function fit() {
+    var panel = document.getElementById("panel-" + current);
+    var stage = panel.querySelector(".stage");
+    var scaler = panel.querySelector(".scaler");
+    var width = parseInt(panel.dataset.width, 10);
+    var scale = Math.min(1, stage.clientWidth / width);
+    scaler.style.transform = "scale(" + scale + ")";
+    stage.style.height = (scaler.scrollHeight * scale) + "px";
+    document.getElementById("hint").textContent = LABELS[current] +
+      (scale < 1 ? " — shown at " + Math.round(scale * 100) + "% to fit your screen" : "");
+  }
+
+  function show(key) {
+    current = key;
+    var dirs = document.getElementById("dirs");
+    [].forEach.call(dirs.querySelectorAll("button"), function (x) {
+      x.setAttribute("aria-pressed", String(x.dataset.panel === key));
+    });
+    [].forEach.call(document.querySelectorAll(".panel"), function (p) {
+      p.hidden = p.id !== "panel-" + key;
+    });
+    fit();
+  }
+
+  document.getElementById("dirs").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (b) { show(b.dataset.panel); window.scrollTo(0, 0); }
+  });
+
+  document.getElementById("themes").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    document.documentElement.setAttribute("data-theme", b.dataset.theme);
+    [].forEach.call(this.querySelectorAll("button"), function (x) {
+      x.setAttribute("aria-pressed", String(x === b));
+    });
+  });
+
+  window.addEventListener("resize", fit);
+
+  // A 1440px design scaled to fit a phone is unreadable, so open narrow
+  // screens on the mobile artboard, which renders at 1:1.
+  if (window.innerWidth < 700) show("m"); else fit();
+
+  // Fonts load after first paint. A render-blocking <link> costs seconds on a
+  // weak connection, which is exactly where this lightweight page has to work.
+  var link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap";
+  link.onload = fit;
+  document.head.appendChild(link);
+</script>

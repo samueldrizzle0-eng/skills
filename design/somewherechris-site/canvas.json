@@ -1,0 +1,136 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 5350,
+      "page": "page-dark",
+      "title": "A — The Document (dark)"
+    },
+    {
+      "file": "VariationB.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 3150,
+      "page": "page-dark",
+      "title": "B — The Split Ledger (dark)"
+    },
+    {
+      "file": "VariationC.dc.html",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "page": "page-dark",
+      "title": "C — The Statement (dark)"
+    },
+    {
+      "file": "ALight.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 5350,
+      "page": "page-light",
+      "title": "A — The Document (light)"
+    },
+    {
+      "file": "BLight.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 3150,
+      "page": "page-light",
+      "title": "B — The Split Ledger (light)"
+    },
+    {
+      "file": "CLight.dc.html",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "page": "page-light",
+      "title": "C — The Statement (light)"
+    },
+    {
+      "file": "PhoneA.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 3550,
+      "page": "page-mobile",
+      "title": "A — phone (dark)"
+    },
+    {
+      "file": "PhoneALight.dc.html",
+      "x": 510,
+      "y": 0,
+      "w": 390,
+      "h": 3550,
+      "page": "page-mobile",
+      "title": "A — phone (light)"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "dir-a",
+      "x": 0,
+      "y": -300,
+      "w": 460,
+      "page": "page-dark",
+      "text": "A — The Document\n680px prose column, Instrument Serif display-l headline, hairline-separated steps. The calmest of the three and the closest fit to \"space is the primary design tool\". The pricing card is the page's one focal element (elevation 4)."
+    },
+    {
+      "id": "dir-b",
+      "x": 1560,
+      "y": -300,
+      "w": 460,
+      "page": "page-dark",
+      "text": "B — The Split Ledger\nSticky offer rail on the left carrying the single primary CTA, evidence on the right. The top bar deliberately has no button: the rail's CTA is already in view, and two filled magenta elements at once would break the accent budget."
+    },
+    {
+      "id": "dir-c",
+      "x": 3120,
+      "y": -300,
+      "w": 460,
+      "page": "page-dark",
+      "text": "C — The Statement\nThe only direction using display-xl (64px serif). Its old full-bleed colour slabs are gone — bands now alternate canvas and surface, which is what the system asks for and what keeps magenta inside its budget."
+    },
+    {
+      "id": "row-light",
+      "x": 0,
+      "y": -300,
+      "w": 560,
+      "page": "page-light",
+      "text": "LIGHT VARIANT (§2.7)\nDark is the default; this is the supported variant for Substack-adjacent pages and long-form reading.\n\nOne rule inverts between the modes: ink on the magenta fill is #0B0A0F in dark and #FFFFFF in light. The accent itself darkens from #FF2D96 to #C9146A, which is the light-safe step."
+    },
+    {
+      "id": "row-mobile",
+      "x": 0,
+      "y": -300,
+      "w": 560,
+      "page": "page-mobile",
+      "text": "MOBILE — direction A at 390px, dark and light.\nMobile type ramp from §3.2: display-l drops 48 → 34, h2 32 → 25. Buttons stay 52px tall and go full width, the menu target is 44×44, and body never drops below 14px."
+    }
+  ],
+  "pages": [
+    {
+      "id": "page-dark",
+      "name": "Dark (default)"
+    },
+    {
+      "id": "page-light",
+      "name": "Light variant"
+    },
+    {
+      "id": "page-mobile",
+      "name": "Mobile"
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-dark"
+  }
+}
