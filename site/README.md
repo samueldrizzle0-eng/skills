@@ -48,13 +48,27 @@ horizontal overflow, heading order, touch-target height, and unlabelled inputs.
 
 ## The waitlist
 
-`join/index.html` holds a plain GET form pointed at Substack's hosted subscribe
-page. No JavaScript. If Substack honours the `email` parameter the field arrives
-prefilled; if it doesn't, the reader lands on the subscribe page and types it
-once. Either way it works.
+`join/index.html` holds a plain GET form pointed at
+`https://leadmagnets.substack.com/subscribe`. No JavaScript. Submitting builds
+`…/subscribe?email=<address>`, verified in a browser. If Substack honours the
+`email` parameter the field arrives prefilled; if it doesn't, the reader lands on
+the subscribe page and types it once. Either way it reaches the right place.
 
-**This has not been tested against a real publication** — Substack is blocked
-from the network this was built on. Confirm it once `[SUBSTACK URL]` is real.
+**The prefill itself is unverified** — substack.com is blocked from the network
+this was built on. Submit a real address once the site is live and check it
+arrives.
+
+The nav's "Writing" links point at the same publication.
+
+## Pre-launch state
+
+Every page carries `<meta name="robots" content="noindex, nofollow">` so nothing
+is indexed while the placeholders are still visible. `robots.txt` deliberately
+still allows crawling — a `Disallow` would stop robots reading the noindex, and a
+URL discovered elsewhere could get indexed anyway.
+
+**At launch:** remove the robots meta tag from all 7 pages, uncomment the sitemap
+line in `robots.txt`, and set `[SITE URL]` throughout.
 
 ## Placeholders to replace before launch
 

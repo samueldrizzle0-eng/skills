@@ -1,4 +1,9 @@
+# Pre-launch. Crawling stays allowed so robots can actually read the
+# "noindex" directive on each page; a Disallow here would hide it and a URL
+# discovered elsewhere could still get indexed.
+# At launch: delete this file's noindex note, remove the meta robots tags from
+# the pages, and set the sitemap URL below.
 User-agent: *
 Allow: /
 
-Sitemap: [SITE URL]/sitemap.xml
+# Sitemap: [SITE URL]/sitemap.xml
