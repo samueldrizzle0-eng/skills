@@ -68,7 +68,7 @@ still allows crawling — a `Disallow` would stop robots reading the noindex, an
 URL discovered elsewhere could get indexed anyway.
 
 **At launch:** remove the robots meta tag from all 7 pages, uncomment the sitemap
-line in `robots.txt`, and set `[SITE URL]` throughout.
+line in `robots.txt`, and set `https://samuelchris.netlify.app` throughout.
 
 ## Placeholders to replace before launch
 
@@ -79,7 +79,7 @@ grep -rn '\[[A-Z][A-Z ]*\]' --include='*.html' --include='*.xml' --include='*.tx
 ```
 
 - `[SUBSTACK URL]` — the publication root, no trailing slash, e.g. `https://name.substack.com`
-- `[SITE URL]` — the live origin, for canonical and Open Graph tags
+- `https://samuelchris.netlify.app` — the live origin, for canonical and Open Graph tags
 - `[YEAR]`, `[DATE]`, `[X]`, `[X weeks]`
 - `[CONTACT EMAIL]`, `[JURISDICTION]`, `[LEGAL NAME OR BUSINESS]`
 - The whole of `about/` below the first heading

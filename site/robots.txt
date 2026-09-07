@@ -6,4 +6,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap: [SITE URL]/sitemap.xml
+# Sitemap: https://samuelchris.netlify.app/sitemap.xml
