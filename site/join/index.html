@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the waitlist — SomewhereChris</title>
+<meta name="description" content="Get told first when the system opens, plus the weekly teardown of a real digital product.">
+<meta property="og:title" content="Join the waitlist — SomewhereChris">
+<meta property="og:description" content="Get told first when the system opens, plus the weekly teardown of a real digital product.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="[SITE URL]/join/">
+<meta property="og:image" content="[SITE URL]/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/components.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- §7.9: no nav beyond the wordmark. Nothing on this page competes with the
+     one action. -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="wordmark" href="/">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 L10 6 L14 14 L17 9 L20 18"></path></svg>
+      SomewhereChris
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section section--hero">
+    <div class="container-prose stack stack--8">
+
+      <div class="stack stack--4">
+        <h1 class="t-display-l">Get told first, and get the teardowns meanwhile.</h1>
+        <p class="t-body-lg c-muted">
+          The system opens later this year. Join the list and you'll hear before
+          anyone else, and you'll get something useful every week until then.
+        </p>
+      </div>
+
+      <!-- §7.9: 3 bullets, each one line. -->
+      <ul class="stack stack--3">
+        <li class="t-body" style="display: flex; gap: var(--space-3); align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;" aria-hidden="true"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span>A weekly teardown of 1 real digital product, start to finish.</span>
+        </li>
+        <li class="t-body" style="display: flex; gap: var(--space-3); align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;" aria-hidden="true"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span>First access when the system opens, before it's announced anywhere.</span>
+        </li>
+        <li class="t-body" style="display: flex; gap: var(--space-3); align-items: flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;" aria-hidden="true"><path d="M20 6 L9 17 L4 12"></path></svg>
+          <span>No pitch until there's something real to pitch.</span>
+        </li>
+      </ul>
+
+      <!-- Signups go to Substack.
+           This is a plain GET form pointed at the hosted subscribe page, so it
+           works whether or not Substack honours the `email` parameter: if it
+           does, the field arrives prefilled; if it doesn't, the reader lands on
+           the subscribe page and types it once. No JavaScript, nothing to break.
+           TODO(sam): confirm the prefill against the real publication URL. -->
+      <form class="card stack stack--4" action="[SUBSTACK URL]/subscribe" method="get">
+        <div class="field">
+          <label class="field__label" for="email">
+            Email address <span class="field__required">(required)</span>
+          </label>
+          <input class="input" type="email" id="email" name="email"
+                 autocomplete="email" required placeholder="you@example.com">
+          <p class="field__help" id="email-help">
+            You'll finish on Substack, where the list lives.
+          </p>
+        </div>
+        <button class="btn btn--lg btn--primary btn--block" type="submit">Join the waitlist</button>
+      </form>
+
+      <p class="t-caption c-subtle">
+        One email a week. Unsubscribe in one click, any time. Your address goes
+        to Substack and nowhere else. <a href="/privacy/">Privacy</a>.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p class="t-body-sm c-subtle">SomewhereChris, [YEAR]</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

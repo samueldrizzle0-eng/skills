@@ -1,0 +1,507 @@
+/* Components — §6. Only what v1 uses. Every state in each table is built:
+ * §6 opens with "States are non-optional: build all of them or the component
+ * isn't done."
+ */
+
+/* ============================== Button (§6.1) ============================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-instant) var(--ease-standard),
+    border-color var(--duration-instant) var(--ease-standard),
+    color var(--duration-instant) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.btn:hover { text-decoration: none; }
+
+/* Sizes */
+.btn--sm {
+  height: 34px;
+  padding-inline: var(--space-3);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+}
+
+.btn--md {
+  height: 42px;
+  padding-inline: var(--space-5);
+  font-size: var(--text-body-sm);
+}
+
+/* §6.1 gives sm 34px and md 42px; §9 requires a 44×44 target and is listed as
+ * non-negotiable. The invisible-padding trick §6.1 suggests does not survive a
+ * hit test here — a pseudo-element only extends the target upward before
+ * sibling elements intercept it — so the height itself grows, and only where
+ * the rule applies: on a coarse pointer. Mouse-driven views keep the exact
+ * token heights. */
+@media (pointer: coarse) {
+  .btn--sm,
+  .btn--md {
+    min-height: 44px;
+  }
+}
+
+.btn--lg {
+  height: 52px;
+  padding-inline: var(--space-6);
+  font-size: var(--text-body);
+}
+
+/* Variants */
+.btn--primary {
+  background: var(--accent-500);
+  /* §0 rule 4: ink on magenta is always the inverse token. Never white. */
+  color: var(--color-text-inverse);
+}
+
+.btn--primary:hover { background: var(--accent-600); color: var(--color-text-inverse); }
+.btn--primary:active { background: var(--accent-700); transform: translateY(1px); }
+
+.btn--secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+}
+
+.btn--secondary:hover { background: var(--color-surface-raised); color: var(--color-text); }
+.btn--secondary:active { transform: translateY(1px); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.btn--ghost:hover { background: var(--color-surface); color: var(--color-text); }
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn[disabled]:hover,
+.btn[aria-disabled="true"]:hover {
+  background: var(--accent-500);
+}
+
+.btn--secondary[disabled]:hover { background: var(--color-surface); }
+.btn--ghost[disabled]:hover { background: transparent; }
+
+/* §6.1 loading: label holds its place at 0.6, button keeps its width. */
+.btn[data-loading="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn--block { width: 100%; }
+
+/* ======================= Input (§6.2) ======================= */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* §6.2: labels are always visible. No placeholder-as-label. */
+.field__label {
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.field__label .field__required {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.input {
+  height: 44px;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  /* §6.2: never smaller than 16px — iOS zooms the page below it. */
+  font-size: var(--text-body);
+  transition:
+    border-color var(--duration-instant) var(--ease-standard),
+    box-shadow var(--duration-instant) var(--ease-standard);
+}
+
+/* §6.2 hover border. The system names this value and gives it no token,
+ * so it is bound here rather than inlined at each call site (§0 rule 8). */
+.input { --input-border-hover: #463F52; }
+.input:hover { border-color: var(--input-border-hover); }
+
+.input::placeholder { color: var(--color-text-subtle); }
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.input[aria-invalid="true"] { border-color: var(--color-danger); }
+
+.input[disabled] {
+  background: var(--color-canvas);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+/* §6.2: help text appears before the reader errs, not after. */
+.field__help {
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--color-text-subtle);
+}
+
+/* §6.2 / §9: never rely on the border alone — the message carries an icon. */
+.field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--color-danger);
+}
+
+/* ================================ Card (§6.4) ================================ */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .card { padding: var(--space-6); }
+}
+
+.card--interactive {
+  cursor: pointer;
+  transition:
+    background-color var(--duration-instant) var(--ease-standard),
+    border-color var(--duration-instant) var(--ease-standard);
+}
+
+.card--interactive:hover {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+}
+
+.card--feature {
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .card--feature { padding: var(--space-10); }
+}
+
+/* §4.3 level 4 — the accent glow. Once per screen, on the one thing you want
+ * looked at. */
+.card--focal {
+  border-radius: var(--radius-xl);
+  border-color: var(--accent-ring);
+  box-shadow: var(--glow-accent);
+}
+
+/* =============================== Badge (§6.5) =============================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  font-weight: 600;
+}
+
+.badge--neutral { background: var(--color-surface-raised); color: var(--color-text-muted); }
+.badge--accent  { background: var(--accent-soft); color: var(--accent-300); }
+.badge--success { background: var(--success-soft); color: var(--color-success); }
+
+/* ============================== Callout (§6.12) ============================== */
+
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border-left: 3px solid;
+  font-size: var(--text-body-sm);
+  line-height: 1.55;
+}
+
+.callout__icon { flex-shrink: 0; }
+
+.callout--info    { background: var(--info-soft);    border-left-color: var(--color-info); }
+.callout--success { background: var(--success-soft); border-left-color: var(--color-success); }
+.callout--warning { background: var(--warning-soft); border-left-color: var(--color-warning); }
+.callout--danger  { background: var(--danger-soft);  border-left-color: var(--color-danger); }
+
+/* §6.12: the accent callout is reserved for the anchor definition and the North
+ * Star question — the brand's own voice speaking. */
+.callout--accent {
+  background: var(--accent-soft);
+  border-left-color: var(--accent-500);
+  color: var(--color-text);
+}
+
+/* ============================ Nav (§6.6, marketing) ============================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 68px;
+  background: rgba(11, 10, 15, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--duration-instant) var(--ease-standard);
+}
+
+/* §6.6: the border appears only after 24px of scroll. */
+.site-header[data-scrolled="true"] {
+  border-bottom-color: var(--color-border);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  font-weight: 600;
+}
+
+.wordmark:hover { color: var(--color-text); text-decoration: none; }
+
+.site-nav {
+  display: none;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* §9: 44px minimum target. The header is 68px tall and the links are centred in
+ * it, so carrying the target on the link itself costs nothing visually. */
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm);
+  transition: color var(--duration-instant) var(--ease-standard);
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* §9: 44×44 minimum touch target. */
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.nav-toggle:hover { color: var(--color-text); }
+
+/* At md the inline nav replaces the hamburger. This block sits after both
+ * base rules so it wins on source order, not on specificity. */
+@media (min-width: 768px) {
+  .site-nav { display: flex; }
+  .nav-toggle { display: none; }
+}
+
+/* §6.6: below md the panel slides down full-width from the top. */
+.nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68px;
+  background: var(--color-surface-overlay);
+  border-bottom: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.nav-panel[hidden] { display: none; }
+
+.nav-panel__link {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  /* §9: 44×44 minimum. */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-panel__link:hover { background: var(--color-surface-raised); text-decoration: none; }
+
+@media (min-width: 768px) {
+  .nav-panel { display: none; }
+}
+
+/* ================================ Footer ================================ */
+
+.site-footer {
+  background: var(--color-canvas);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-12);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+/* §9: 44px minimum target. Footer links are the smallest thing on the page and
+ * the easiest to miss on a phone, so the row height carries the target rather
+ * than the text box. */
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm);
+}
+
+.site-footer__links a:hover { color: var(--color-text); }
+
+/* ============================== Accordion ==============================
+ * §7.5 step 7 objection handling. Not a specced component, so it is built from
+ * the system's own parts: hairline rows, h4 question, body-sm answer.
+ */
+
+.accordion__item {
+  border-top: 1px solid var(--color-border);
+}
+
+.accordion__item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-text);
+  transition: color var(--duration-instant) var(--ease-standard);
+}
+
+.accordion__q::-webkit-details-marker { display: none; }
+.accordion__q:hover { color: var(--accent-300); }
+
+.accordion__icon {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.accordion__item[open] .accordion__icon { transform: rotate(45deg); }
+
+.accordion__a {
+  padding-bottom: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm);
+  line-height: 1.55;
+  max-width: var(--container-prose);
+}
+
+/* ============================ Empty state (§6.13) ============================ */
+
+.empty-state {
+  max-width: 420px;
+  margin-inline: auto;
+  padding-block: var(--space-16);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.empty-state__icon { color: var(--color-text-subtle); }
+
+/* ============================ Step list ============================
+ * The "how it works" rows: mono numeral, h4 title, body-sm description,
+ * separated by hairlines. A list separator, not a section divider (§7.4).
+ */
+
+.steps__item {
+  display: flex;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.steps__item:last-child { border-bottom: 1px solid var(--color-border); }
+
+.steps__n {
+  flex-shrink: 0;
+  min-width: var(--space-8);
+  color: var(--color-text-subtle);
+}

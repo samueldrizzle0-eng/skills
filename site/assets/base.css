@@ -1,0 +1,267 @@
+/* Base layer — reset, the §3.2 type ramp, containers (§7.2), rhythm (§7.4). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* §4.5: icons inherit currentColor and are muted until they mean something. */
+svg {
+  stroke-width: 1.5;
+}
+
+h1, h2, h3, h4, p, figure, blockquote, ul, ol, dl {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* §3.3: no justified text, no hyphenation. */
+p {
+  text-wrap: pretty;
+  hyphens: none;
+}
+
+a {
+  color: var(--accent-400);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-300);
+  text-decoration: underline;
+}
+
+/* §9: one focus ring for every interactive element in the system. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* §9: keyboard users reach the content without tabbing the whole nav. */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: calc(var(--space-4) * -8);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-overlay);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  transition: top var(--duration-fast) var(--ease-standard);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ============================ Type ramp (§3.2) ============================
+ * Desktop values. The mobile column applies below md (768px).
+ * §3.3: serif headings render at weight 400 — Instrument Serif has no useful
+ * bold, so presence comes from size, not weight. Negative tracking on serif
+ * only; body text is never tightened.
+ */
+
+.t-display-xl,
+.t-display-l,
+.t-h1,
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.t-display-xl { font-size: var(--text-display-xl); line-height: 1.05; letter-spacing: -0.03em; }
+.t-display-l  { font-size: var(--text-display-l);  line-height: 1.10; letter-spacing: -0.02em; }
+.t-h1         { font-size: var(--text-h1);         line-height: 1.15; letter-spacing: -0.02em; }
+.t-h2         { font-size: var(--text-h2);         line-height: 1.20; letter-spacing: -0.015em; }
+
+.t-h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
+  line-height: 1.30;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.t-h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-h4);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.t-body-lg { font-size: var(--text-body-lg); line-height: 1.65; }
+.t-body    { font-size: var(--text-body);    line-height: 1.60; }
+.t-body-sm { font-size: var(--text-body-sm); line-height: 1.55; }
+.t-caption { font-size: var(--text-caption); line-height: 1.45; }
+
+/* §3.2: overline is always uppercase, and always muted or accent-400.
+ * It labels sections; it never carries content. */
+.t-overline {
+  font-size: var(--text-overline);
+  line-height: 1.20;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  line-height: 1.50;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 767px) {
+  .t-display-xl { font-size: 2.5rem;   line-height: 1.1; }  /* 40 */
+  .t-display-l  { font-size: 2.125rem; line-height: 1.15; } /* 34 */
+  .t-h1         { font-size: 1.875rem; line-height: 1.2; }  /* 30 */
+  .t-h2         { font-size: 1.5625rem;line-height: 1.25; } /* 25 */
+  .t-h3         { font-size: 1.3125rem;line-height: 1.3; }  /* 21 */
+  .t-h4         { font-size: 1.125rem; line-height: 1.35; } /* 18 */
+  .t-body-lg    { font-size: 1.0625rem;line-height: 1.6; }  /* 17 */
+  .t-mono       { font-size: 0.8125rem;line-height: 1.5; }  /* 13 */
+}
+
+/* Colour helpers, so a page never reaches past a token. */
+.c-text    { color: var(--color-text); }
+.c-muted   { color: var(--color-text-muted); }
+.c-subtle  { color: var(--color-text-subtle); }
+.c-accent  { color: var(--accent-400); }
+
+/* ======================== Containers and rhythm ======================== */
+
+/* §7.2 horizontal page padding: 16 below md, 32 at md, 48 at lg and up. */
+.container,
+.container-prose,
+.container-wide {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.container       { max-width: calc(var(--container-content) + var(--space-8) * 2); }
+.container-prose { max-width: calc(var(--container-prose)   + var(--space-8) * 2); }
+.container-wide  { max-width: calc(var(--container-wide)    + var(--space-8) * 2); }
+
+@media (min-width: 768px) {
+  .container,
+  .container-prose,
+  .container-wide { padding-inline: var(--space-8); }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .container-prose,
+  .container-wide { padding-inline: var(--space-12); }
+
+  .container       { max-width: calc(var(--container-content) + var(--space-12) * 2); }
+  .container-prose { max-width: calc(var(--container-prose)   + var(--space-12) * 2); }
+  .container-wide  { max-width: calc(var(--container-wide)    + var(--space-12) * 2); }
+}
+
+/* §7.4 vertical rhythm: 64 mobile, 80 tablet, 96 desktop. Hero gets 128 top. */
+.section {
+  padding-block: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-20); }
+}
+
+@media (min-width: 1024px) {
+  .section { padding-block: var(--space-24); }
+}
+
+.section--hero { padding-block: var(--space-16) var(--space-16); }
+
+@media (min-width: 1024px) {
+  .section--hero { padding-block: var(--space-32) var(--space-24); }
+}
+
+/* §7.4: alternate section backgrounds to separate them. Never a horizontal
+ * rule as a section divider on marketing pages. */
+.section--surface { background: var(--color-surface); }
+
+/* A section that follows one of the same colour needs no double padding. */
+.section--tight-top { padding-block-start: 0; }
+
+/* §7.3 grid: 12 columns, 24 gutter at md and up, single column below. */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack--2 { gap: var(--space-2); }
+.stack--3 { gap: var(--space-3); }
+.stack--4 { gap: var(--space-4); }
+.stack--6 { gap: var(--space-6); }
+.stack--8 { gap: var(--space-8); }
+.stack--12 { gap: var(--space-12); }
+
+.center {
+  text-align: center;
+  align-items: center;
+}
+
+/* §7.5: the hero subhead is capped at 560px so it holds to 2 lines. */
+.measure-subhead { max-width: 560px; }
+.measure-prose   { max-width: var(--container-prose); }
+
+.center .measure-subhead,
+.center .measure-prose {
+  margin-inline: auto;
+}
