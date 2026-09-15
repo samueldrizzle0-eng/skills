@@ -3,3 +3,7 @@ __pycache__/
 .idea/
 .vscode/
 
+
+# Seeded design canvas build output (regenerate with design/landing-page/build.mjs)
+design/landing-page/*.html
+!design/landing-page/*.dc.html

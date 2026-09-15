@@ -1,0 +1,84 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Option A — Named asset",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 3500,
+      "is_interactive": true
+    },
+    {
+      "file": "OptionAMobile.dc.html",
+      "title": "Option A — phone",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 4200,
+      "is_interactive": true
+    },
+    {
+      "file": "OptionB.dc.html",
+      "title": "Option B — Reframe + founder note",
+      "x": 1400,
+      "y": 0,
+      "w": 1280,
+      "h": 3500,
+      "is_interactive": true
+    },
+    {
+      "file": "OptionBMobile.dc.html",
+      "title": "Option B — phone",
+      "page": "page-2",
+      "x": 500,
+      "y": 0,
+      "w": 390,
+      "h": 4200,
+      "is_interactive": true
+    },
+    {
+      "file": "OptionC.dc.html",
+      "title": "Option C — Before → after",
+      "x": 2800,
+      "y": 0,
+      "w": 1280,
+      "h": 3500,
+      "is_interactive": true
+    },
+    {
+      "file": "OptionCMobile.dc.html",
+      "title": "Option C — phone",
+      "page": "page-2",
+      "x": 1000,
+      "y": 0,
+      "w": 390,
+      "h": 4200,
+      "is_interactive": true
+    }
+  ],
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Options"
+    },
+    {
+      "id": "page-2",
+      "name": "Phone"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "how-to-read",
+      "x": 0,
+      "y": -320,
+      "w": 460,
+      "text": "Three directions, same design system.\n\nA — names the asset. Safest, most literal. Proof is one honest line of context.\nB — reframes the problem, then a founder note. Converts on trust in you.\nC — before/after promise, backed by two real quotes.\n\nEvery artboard has a dark/light chip above it. Bracketed text is yours to fill in."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}
