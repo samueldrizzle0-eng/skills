@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "idea2mvp": {
+      "source": "MorvanZhou/idea2mvp",
+      "sourceType": "github",
+      "skillPath": "skills/idea2mvp/SKILL.md",
+      "computedHash": "65b64dd6758ea0268b70beadaff22955398debe1764585b40ead27eb90b1ae7b"
+    }
+  }
+}
